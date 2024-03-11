@@ -14,7 +14,6 @@ const PopularProducts = () => {
 
   useEffect(() => {
     setElements(collection.slice(0, 8))
-    console.log(elements)
   }, [collection])
 
 
