@@ -10,20 +10,24 @@ import { motion } from 'framer-motion'
 import PopularProducts from './PopularProducts';
 import Testinomials from './Testinomials';
 import Feedbacks from './Feedbacks';
+import { useNavigate } from 'react-router-dom';
 
 
 const Landing = () => {
 
   const { width, height } = useWindowResize()
+  const navigate = useNavigate()
 
   const fadeInUpAnimation = {
     hidden: {
       opacity: 0,
+      y: 100,
       scale: 0
     },
     show: {
       opacity: 1,
       scale: 1,
+      y: 0,
       transition: {
         duration: 1,
       },
@@ -56,7 +60,8 @@ const Landing = () => {
           </div>
 
 
-          <div className='flex flex-wrap gap-3 sm:mx-auto md:gap-8'>
+          <div className='flex flex-wrap gap-3 sm:mx-auto md:gap-8'
+          onClick={()=>navigate('/allproducts')}>
             <div className='bg-[#FAF5FF] p-3 text-center text-[#7F57F1] flex flex-col gap-2'>
               <div className='text-3xl ml-3'><PiTShirt /></div>
               <h1 className='text-xl font-serif font-semibold'>Men's</h1>
@@ -84,19 +89,25 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className='mt-16 mb-16 text-left font-bold font-sans text-2xl text-[#7F57F1]'>
+        <div className='mt-16 mb-16 text-left font-bold font-sans text-2xl text-[#7F57F1] md:ml-10'>
           Our Latest Collections
         </div>
 
-        <PopularProducts />
-        
-        <div className='mt-16 mb-10 text-left font-bold font-sans text-2xl text-[#7F57F1]'>
+        <div className='mx-auto md:pl-14'>
+          <PopularProducts />
+        </div>
+
+        <div className='mt-16 mb-10 text-left font-bold font-sans text-2xl text-[#7F57F1] md:ml-10'>
           Why to choose us?
         </div>
 
-        <Testinomials />
+        <div className='mx-auto'>
+          <Testinomials />
+        </div>
 
-        <Feedbacks />
+        <div className='mx-auto'>
+          <Feedbacks />
+        </div>
       </div>
 
     </>

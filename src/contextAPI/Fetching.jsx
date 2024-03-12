@@ -1,8 +1,20 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
 
-export const baseURl = 'https://fakestoreapi.com/products'
-export const usefetch = async ()=>{
-    const fetched = await axios.get(baseURl)
-    return fetched
-}
+export const baseURL = 'https://fakestoreapi.com/products';
+
+let myData = [];
+
+export const usefetch = async () => {
+    try {
+        const response = await axios.get(baseURL);
+        myData = response.data;
+        return myData;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return [];
+    }
+};
+
+// export const getData = async () => {
+//     await usefetch()
+// };

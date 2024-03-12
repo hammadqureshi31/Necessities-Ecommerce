@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ data }) => {
     const [hovered, setHovered] = useState(false);
+    const navigate = useNavigate()
 
     const handleMouseEnter = () => {
         setHovered(true);
@@ -12,8 +14,12 @@ const Card = ({ data }) => {
         setHovered(false);
     };
 
+    const handleDetail = (id) => {
+        navigate(`/product/details/${id}`)
+    }
+
     return (
-        <div
+        <div onClick={()=>handleDetail(data.id)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={`flex flex-col gap-3 p-4 mb-8 justify-center text-left border w-[280px] rounded-2xl
@@ -29,7 +35,7 @@ const Card = ({ data }) => {
                 </h1>
             </div>
             <div>
-                <p className='font-mono font-normal text-lg opacity-50 italic'>
+                <p className='font-mono font-normal text-sm opacity-50 italic'>
                     {data.description.slice(0, 100)}
                 </p>
             </div>

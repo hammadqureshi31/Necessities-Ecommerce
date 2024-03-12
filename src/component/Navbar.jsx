@@ -4,6 +4,7 @@ import useWindowResize from '../contextAPI/WindowResize'
 import { RiMenuUnfoldLine } from "react-icons/ri";
 import { GiShoppingCart } from "react-icons/gi";
 import { motion } from 'framer-motion'
+import { NavLink } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -53,10 +54,10 @@ const Navbar = () => {
                     variants={fadeInUpAnimation}
                     className={`${navToggal ? 'flex justify-between text-center mt-6 font-semibold' : 'hidden'} 
                     md:mt-3 md:flex md:gap-10 md:text-center md:text-lg md:mr-20 font-semibold`}>
-                    <h1>Home</h1>
-                    <h1>All products</h1>
-                    <h1>FAQs</h1>
-                    <h1>Contact</h1>
+                    <NavLink to={'/'} className='navActive'>Home</NavLink>
+                    <NavLink to={'/allproducts'} className='navActive'>All products</NavLink>
+                    <NavLink to={'/faqs'} className='navActive'>FAQs</NavLink>
+                    <NavLink to={'/contacts'} className='navActive'>Contact</NavLink>
                 </motion.div>
                 <div className='hidden md:flex md:gap-5 md:text-center md:font-semibold mt-1'>
                     <button className='bg-[#7F57F1] text-white text-md p-2 rounded-lg'>Sign up</button>

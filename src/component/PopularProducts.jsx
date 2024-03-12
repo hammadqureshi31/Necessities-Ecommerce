@@ -9,7 +9,7 @@ const PopularProducts = () => {
 
 
   useEffect(() => {
-    usefetch().then((resp) => setCollection(resp.data))
+    usefetch().then((resp) => setCollection(resp))
   }, [])
 
   useEffect(() => {

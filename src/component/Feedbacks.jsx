@@ -62,7 +62,7 @@ const Feedbacks = () => {
                 <h1 className='text-xl font-mono text-[#7F57F1] font-semibold sm:text-3xl'>
                     Start Shopping Today!
                 </h1>
-                <p className='text-sm mt-6 tracking-wide font-serif opacity-45 italic sm:text-lg'>
+                <p className='text-sm mt-6 tracking-wide font-serif opacity-45 italic sm:text-lg md:mx-10'>
                     Explore our website and start shopping for the latest trends and must-have products. With our commitment to quality, variety, and affordability, we're your one-stop destination for all your shopping needs.
                 </p>
             </div>
