@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Allproducts from './pages/Allproducts.jsx'
 import FAQs from './pages/FAQs.jsx'
@@ -11,7 +11,7 @@ import Details from './pages/Details.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
     <Routes>
       <Route path='/' element={<App />}>
         <Route index element={<Home />}/>
@@ -21,6 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='product/details/:id' element={<Details />}/>
       </Route>
     </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
 )
