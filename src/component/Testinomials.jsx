@@ -57,7 +57,7 @@ const Testimonials = () => {
             >
                 <motion.div
                     variants={itemVariants}
-                    className='w-72 h-48 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-lg shadow-md overflow-hidden relative'
+                    className='w-72 h-48 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-lg overflow-hidden relative'
                 >
                     <div className='absolute inset-0 bg-white opacity-25'></div>
                     <div className='absolute inset-0 flex items-center justify-center'>
@@ -70,7 +70,7 @@ const Testimonials = () => {
 
                 <motion.div
                     variants={itemVariants}
-                    className='w-72 h-48 bg-gradient-to-br from-pink-400 to-red-600 rounded-lg shadow-lg overflow-hidden relative'
+                    className='w-72 h-48 bg-gradient-to-br from-pink-400 to-red-600 rounded-lg overflow-hidden relative'
                 >
                     <div className='absolute inset-0 bg-white opacity-25'></div>
                     <div className='absolute inset-0 flex items-center justify-center'>
@@ -83,7 +83,7 @@ const Testimonials = () => {
 
                 <motion.div
                     variants={itemVariants}
-                    className='w-72 h-48 bg-gradient-to-br from-green-400 to-blue-600 rounded-lg shadow-lg overflow-hidden relative'
+                    className='w-72 h-48 bg-gradient-to-br from-green-400 to-blue-600 rounded-lg overflow-hidden relative'
                 >
                     <div className='absolute inset-0 bg-white opacity-25'></div>
                     <div className='absolute inset-0 flex items-center justify-center'>
@@ -96,7 +96,7 @@ const Testimonials = () => {
 
                 <motion.div
                     variants={itemVariants}
-                    className='w-72 h-48 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-lg shadow-lg overflow-hidden relative'
+                    className='w-72 h-48 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-lg  overflow-hidden relative'
                 >
                     <div className='absolute inset-0 bg-white opacity-25'></div>
                     <div className='absolute inset-0 flex items-center justify-center'>
