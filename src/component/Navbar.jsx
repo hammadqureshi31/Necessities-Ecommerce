@@ -14,14 +14,10 @@ const Navbar = () => {
     const fadeInUpAnimation = {
         hidden: {
             opacity: 0,
-            y: -200,
-            x:-200,
             scale: 0
         },
         show: {
             opacity: 1,
-            y: 0,
-            x:0,
             scale: 1,
             transition: {
                 duration: 1.3,
@@ -57,7 +53,7 @@ const Navbar = () => {
                     <NavLink to={'/'} className='navActive'>Home</NavLink>
                     <NavLink to={'/allproducts'} className='navActive'>All products</NavLink>
                     <NavLink to={'/faqs'} className='navActive'>FAQs</NavLink>
-                    <NavLink to={'/contacts'} className='navActive'>Contact</NavLink>
+                    <NavLink to={'/contact'} className='navActive'>Contact</NavLink>
                 </motion.div>
                 <div className='hidden md:flex md:gap-5 md:text-center md:font-semibold mt-1'>
                     <button className='bg-[#7F57F1] text-white text-md p-2 rounded-lg'>Sign up</button>

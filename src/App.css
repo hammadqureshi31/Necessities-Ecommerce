@@ -3,3 +3,97 @@
   font-size: larger;
   text-decoration: underline;
 }
+
+.offer-card {
+  border: 2px solid #e2e8f0;
+  transition: border-color 0.3s;
+
+}
+
+.offer-card:hover {
+  border-color: #a0aec0;
+  background-color: rgb(232, 249, 253);
+}
+
+.image-slider-container {
+  display: flex;
+  gap: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-slider {
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap; /* Ensure all images stay in a single row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
+  margin-bottom: -17px; /* Adjust for scrollbar width, assuming scrollbar width is 17px */
+}
+
+.image-slider::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit browsers (e.g., Chrome, Safari) */
+}
+
+.image-slider-container::after {
+  content: ''; /* Create a pseudo-element */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 17px; /* Width of scrollbar, adjust as needed */
+  background: linear-gradient(to right, transparent, white); /* Create a gradient to blend with the background */
+  pointer-events: none; /* Ensure the pseudo-element doesn't interfere with pointer events */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 300px;
+  background-color: #fff;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bg-purple {
+  background: linear-gradient(135deg, #7F57F1 0%, #8245E6 100%);
+  color: white;
+}
+
+.counter {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #666;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+      flex-basis: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+      flex-basis: calc(100% - 20px);
+  }
+}
+
+
+

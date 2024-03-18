@@ -9,11 +9,11 @@ const PopularProducts = () => {
 
 
   useEffect(() => {
-    usefetch().then((resp) => setCollection(resp))
+    usefetch().then((resp) => setCollection(resp.reverse()))
   }, [])
 
   useEffect(() => {
-    setElements(collection.slice(0, 8))
+    setElements(collection.slice(0, 8).reverse())
   }, [collection])
 
 

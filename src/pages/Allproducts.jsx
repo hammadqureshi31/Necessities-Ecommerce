@@ -6,6 +6,7 @@ import { GiBigDiamondRing } from "react-icons/gi";
 import { GiConverseShoe } from "react-icons/gi";
 import { usefetch } from '../contextAPI/Fetching';
 import Cards from '../component/Cards';
+import Branding from '../component/Branding';
 
 const Allproducts = () => {
     const [allProduct, setAllProduct] = useState([]);
@@ -66,6 +67,8 @@ const Allproducts = () => {
                     </div>
                 </div>
             </div>
+
+            <Branding />
         </>
     )
 }

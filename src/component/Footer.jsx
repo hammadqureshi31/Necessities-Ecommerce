@@ -14,7 +14,7 @@ const Footer = () => {
     const { width, height } = useWindowResize()
     return (
         <>
-            <div className={`bg-[#7F57F1] w-[${width}px] relative flex-col p-6 pt-12 mt-12`}>
+            <div className={`bg-[#7F57F1] w-[${width}px] relative flex-col p-6 pt-12`}>
                 <div className='sm:flex justify-center gap-28 text-center mr-2'>
                     <h1 className='text-white font-bold text-2xl sm:mt-4 font-serif tracking-wider'>Subscribe To Get <br />Special Discounts</h1>
                     <div className='bg-white flex justify-center p-2 py-2.5 mt-8 md:mt-6 w-72 rounded-tl-3xl rounded-br-2xl'>

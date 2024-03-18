@@ -19,10 +19,10 @@ const Card = ({ data }) => {
     }
 
     return (
-        <div onClick={()=>handleDetail(data.id)}
+        <div onClick={() => handleDetail(data.id)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`flex flex-col gap-3 p-4 mb-8 justify-center text-left border w-[280px] rounded-2xl
+            className={`flex flex-col gap-3 p-3 mb-8 justify-center text-left border w-[280px] rounded-2xl
              ${hovered ? 'ring-[#7F57F1] ring-2 transform hover:scale-105' : ''
                 }`}
         >
@@ -30,22 +30,23 @@ const Card = ({ data }) => {
                 <img src={`${data.image}`} alt='' className='size-40' />
             </div>
             <div>
-                <h1 className='font-semibold font-serif text-xl'>
+                <h1 className='font-semibold font-serif text-lg'>
                     {data.title.slice(0, 25)}
                 </h1>
             </div>
             <div>
-                <p className='font-mono font-normal text-sm opacity-50 italic'>
+                <p className='font-sans font-normal text-sm opacity-50 italic'>
                     {data.description.slice(0, 100)}
                 </p>
             </div>
-            <div className='flex gap-3 mx-auto'>
-                <h1 className='font-mono text-lg tracking-tighter underline'>price:Rs 
-                <span className='text-[#7F57F1] font-sans font-bold'> {data.price}</span></h1>
-                <p className='font-mono text-lg tracking-tighter'>rating: 
-                <span className='text-[#7F57F1] font-sans italic'> {data.rating.rate}</span></p>
+            <div className='flex justify-between gap-3 mx-auto'>
+                <p className='font-serif text-lg'>rating:
+                    <span className='text-[#7F57F1] font-sans tracking-tight'> ({data.rating.rate})</span></p>
+                <h1 className='font-serif text-lg font-light'>price:Rs <span 
+                className='text-[#7F57F1] font-sans text-xl font-semibold underline'>{data.price}</span></h1>
+
             </div>
-            <div className='mx-auto'>
+            <div className=''>
                 <button className='bg-[#7F57F1] px-3 py-2 font-sans text-center rounded-lg text-white hover:bg-red-500'>
                     Add To Cart
                 </button>
