@@ -20,7 +20,7 @@ const PopularProducts = () => {
 
   return (
     <>
-      <div className='flex flex-wrap gap-12'>
+      <div className='flex flex-wrap gap-3'>
         {elements.length > 0 && elements.map((data, index) => (
           <Cards data={data} key={data.id} />
         ))}

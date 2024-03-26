@@ -21,7 +21,7 @@ const Footer = () => {
                 <div className='sm:flex justify-center gap-20 text-center mr-1'>
                     <h1 className='text-white font-bold text-2xl sm:mt-4 font-Roboto tracking-wider'>Subscribe To Get <br />Special Discounts</h1>
                     <div className='bg-white flex justify-center p-2 py-2.5 mt-8 md:mt-6 w-60
-                     ml-5 rounded-xl md:w-80'>
+                     ml-8 rounded-xl md:w-80'>
                         <input type="text" name="" id="" placeholder='Email Address' className='font-aleg' />
                         <div className='flex text-center justify-center text-[#7F57F1] text-2xl sm:mt-1 md:text-3xl'><PiBellRingingThin /></div>
                     </div>
@@ -42,7 +42,7 @@ const Footer = () => {
                     </div>
 
 
-                    <div className='flex gap-3 text-white font-semibold flex-wrap mt-24 text-center'>
+                    <div className='flex gap-3 text-white ml-3 sm:ml-0 font-semibold flex-wrap mt-24 text-center'>
                         <div className='flex- flex-col'>
                             <h1 className='font-bold text-lg font-roboto'>Company</h1>
                             <h4 className='mt-10 font-normal  font-aleg'>About</h4>
