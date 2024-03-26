@@ -1,5 +1,5 @@
 .navActive.active {
-  font-weight: bold;
+  font-weight:400;
   font-size: larger;
   text-decoration: underline;
 }
@@ -13,37 +13,6 @@
 .offer-card:hover {
   border-color: #a0aec0;
   background-color: rgb(232, 249, 253);
-}
-
-.image-slider-container {
-  display: flex;
-  gap: 5px;
-  overflow: hidden;
-  position: relative;
-}
-
-.image-slider {
-  display: flex;
-  gap: 5px;
-  flex-wrap: nowrap; /* Ensure all images stay in a single row */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
-  margin-bottom: -17px; /* Adjust for scrollbar width, assuming scrollbar width is 17px */
-}
-
-.image-slider::-webkit-scrollbar {
-  display: none; /* Hide scrollbar on WebKit browsers (e.g., Chrome, Safari) */
-}
-
-.image-slider-container::after {
-  content: ''; /* Create a pseudo-element */
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 17px; /* Width of scrollbar, adjust as needed */
-  background: linear-gradient(to right, transparent, white); /* Create a gradient to blend with the background */
-  pointer-events: none; /* Ensure the pseudo-element doesn't interfere with pointer events */
 }
 
 .container {
@@ -95,5 +64,15 @@
   }
 }
 
+
+
+
+
+@media (min-width: 768px) {
+  .desktop-carousel-container .carousel-item-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 

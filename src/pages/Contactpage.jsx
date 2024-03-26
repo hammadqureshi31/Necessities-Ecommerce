@@ -3,12 +3,12 @@ import React from 'react';
 const Contactpage = () => {
     return (
         <div className="container mx-auto pt-16 px-4 md:px-0 max-w-7xl">
-            <h1 className="text-3xl font-bold text-center mb-10 text-[#7F57F1]">Contact Us</h1>
+            <h1 className="text-3xl font-aleg italic font-bold text-center mb-10 text-[#7F57F1]">Contact Us</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <ContactCard title="General Inquiries" email="info@example.com" phone="+1234567890" />
-                    <ContactCard title="Sales" email="sales@example.com" phone="+1234567890" />
-                    <ContactCard title="Customer Support" email="support@example.com" phone="+1234567890" />
+                    <ContactCard title="General Inquiries" email="hammad2004qureshi@gmail.com" phone="+1234567890" />
+                    <ContactCard title="Sales" email="hammad2004qureshi@gmail.com" phone="+1234567890" />
+                    <ContactCard title="Customer Support" email="hammad2004qureshi@gmail.com" phone="+1234567890" />
                     
                 </div>
                 <div>
@@ -56,9 +56,9 @@ const ContactForm = () => {
 const BeautifulMessage = () => {
     return (
         <div className="border rounded-lg shadow-md p-6 bg-white">
-            <h2 className="text-lg font-semibold mb-2 text-[#7F57F1]">Welcome to Our Contact Page!</h2>
-            <p className="text-gray-600 mb-4">Thank you for considering contacting us. We appreciate your interest and are eager to assist you with any questions or concerns you may have. Feel free to reach out to us through the provided contact information or use the form below to send us a message. We look forward to hearing from you!</p>
-            <p className="text-gray-600">Best regards,<br />The Contact Us Team</p>
+            <h2 className="text-3xl font-black  font-dance mb-4 text-[#7F57F1]">Welcome to Our Contact Page!</h2>
+            <p className="text-gray-600 mb-4 ">Thank you for considering contacting us. We appreciate your interest and are eager to assist you with any questions or concerns you may have. Feel free to reach out to us through the provided contact information or use the form below to send us a message. We look forward to hearing from you!</p>
+            <p className="text-gray-600 font-aleg text-lg">Best regards,<br />The Contact Us Team</p>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { usefetch } from '../contextAPI/Fetching'
+import { usefetch } from '../custom hooks/Fetching'
 import Cards from './Cards'
 
 const PopularProducts = () => {
@@ -20,7 +20,7 @@ const PopularProducts = () => {
 
   return (
     <>
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex flex-wrap gap-12'>
         {elements.length > 0 && elements.map((data, index) => (
           <Cards data={data} key={data.id} />
         ))}

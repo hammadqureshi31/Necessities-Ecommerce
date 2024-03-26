@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../component/Navbar'
-import useWindowResize from '../contextAPI/WindowResize'
+import useWindowResize from '../custom hooks/WindowResize'
 import Landing from '../component/Landing'
 
 const Home = () => {

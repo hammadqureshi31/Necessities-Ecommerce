@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      aleg: ["Alegreya","serif"],
+      roboto: ["Roboto","sans-serif"],
+      dance: "Dancing Script"
+    }
   },
   plugins: [],
 }

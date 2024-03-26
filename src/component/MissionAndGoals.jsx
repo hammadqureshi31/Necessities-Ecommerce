@@ -47,14 +47,16 @@ const MissionAndGoals = () => {
     };
 
     return (
-        <div ref={containerRef} className="flex flex-col md:flex-row items-center justify-center px-6 py-12 bg-sky-100">
+        <div ref={containerRef} className="flex flex-col md:flex-row items-center justify-center px-6 py-12 bg-sky-100 mt-24">
             <motion.div variants={containerVariants} initial="hidden" animate={controls} className="max-w-full md:max-w-2xl md:mr-8">
-                <h2 className="text-xl md:text-4xl font-bold mb-12 text-center md:text-left text-[#7F57F1]">Our Mission & Goals</h2>
-                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-serif italic">Empower small businesses to thrive in the digital economy.</motion.h3>
-                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-serif italic">Provide innovative solutions that simplify everyday tasks.</motion.h3>
-                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-serif italic">Foster a culture of continuous learning and growth.</motion.h3>
-                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-serif italic">Deliver exceptional customer experiences through creativity and empathy.</motion.h3>
-                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-8 text-center md:text-left font-serif italic">Drive positive change by embracing diversity and sustainability.</motion.h3>
+                <h2 className="text-xl md:text-4xl font-bold font-aleg italic tracking-wider mb-12 text-center md:text-left text-[#7F57F1]">Our Mission & Goals</h2>
+                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-roboto">Empower small businesses to thrive in the digital economy.</motion.h3>
+                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-roboto">Provide innovative solutions that simplify everyday tasks.</motion.h3>
+                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-roboto">Foster a culture of continuous learning and growth.</motion.h3>
+                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-roboto">Deliver exceptional customer experiences through creativity and empathy.</motion.h3>
+                <motion.h3 variants={itemVariants} className="text-lg text-gray-700 leading-relaxed mb-8 text-center md:text-left font-roboto">Drive positive change by embracing diversity and sustainability.</motion.h3>
+                <motion.h3 variants={itemVariants} className=" hidden md:inline-block text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-roboto">Empower small businesses to thrive in the digital economy.</motion.h3>
+                <motion.h3 variants={itemVariants} className=" hidden md:inline-block text-lg text-gray-700 leading-relaxed mb-4 text-center md:text-left font-roboto">Provide innovative solutions that simplify everyday tasks.</motion.h3>
             </motion.div>
             <div className="max-w-full md:max-w-lg">
                 <img src='./images/menswear.jpeg' alt="Menswear" className="w-full rounded-lg shadow-lg" />
