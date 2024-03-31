@@ -9,8 +9,8 @@ const Branding = () => {
     const { width } = useWindowResize()
     return (
         <>
-            <div className={`w-[${width}px] pt-14 flex flex-col text-center md:pt-20`}>
-                <div className='mt-16 mb-10 text-left px-4 font-bold font-aleg text-3xl tracking-wider italic text-[#7F57F1] md:ml-10'>
+            <div className={`w-[${width}px] pt-14 flex flex-col text-center sm:w-[${width}px] md:w-[${width}px] md:pt-20`}>
+                <div className='mt-16 mb-10 text-left px-4 font-bold font-aleg text-3xl tracking-wider italic md:ml-10'>
                     Why to choose us?
                 </div>
 

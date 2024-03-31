@@ -7,14 +7,15 @@ import Navbar from './component/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from './component/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import useWindowResize from './custom hooks/WindowResize'
 
 
 function App() {
-  
+  const { width } = useWindowResize()
 
   return (
     <>
-    <div>
+    <div className={`w-[${width}px] md:w-[(${width}-320)px]`}>
       <Navbar />
       <Outlet />
       <Footer />

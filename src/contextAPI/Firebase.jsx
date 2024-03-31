@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { initializeApp } from 'firebase/app'
 import {
     getAuth,
@@ -9,8 +10,9 @@ import {
     signOut,
     sendPasswordResetEmail,
     GoogleAuthProvider,
-    signInWithPopup
+    signInWithPopup,
 } from 'firebase/auth'
+import { userProfile } from "../redux/slices/profileSlice";
 
 export const FirebaseContext = createContext(null)
 
@@ -26,25 +28,27 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig)
 const firebaseAuth = getAuth(firebaseApp)
-const googleProvider = new GoogleAuthProvider
-
-
+const googleProvider = new GoogleAuthProvider()
 
 export const FirebaseProvider = (props) => {
     const [user, setUser] = useState(null)
     const [signup, setSignup] = useState(null)
-    const [userDetails, setUserDetails] = useState('')
+    const [userDetails, setUserDetails] = useState(null) // Changed initial state to null
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        onAuthStateChanged(firebaseAuth, (user) => {
-            if (user) {
-                setUser(true)
-                setUserDetails(user)
+        const unsubscribe = onAuthStateChanged(firebaseAuth, (myuser) => {
+            if (myuser) {
+                setUserDetails(myuser)
+                dispatch(userProfile({ loginuser: true }))
+            } else {
+                setUser(false)
+                dispatch(userProfile({ loginuser: false }))
             }
-            else setUser(null)
         })
-    }, [user])
 
+        return () => unsubscribe();
+    }, [dispatch, firebaseAuth])
 
     const signupUserWithEmailAndPass = (email, password) => {
         createUserWithEmailAndPassword(firebaseAuth, email, password)
@@ -53,21 +57,23 @@ export const FirebaseProvider = (props) => {
     };
 
     const loginUserWithEmailAndPass = (email, password) => {
-        signInWithEmailAndPassword(firebaseAuth, email, password)
+        signInWithEmailAndPassword(firebaseAuth, email, password).then(() => setUser(true))
     }
 
     const sendEmailForgotPass = (email) => {
-        sendPasswordResetEmail(firebaseAuth, email).then(() => navigate('/reset'))
-            .catch((err) => console.log(err.message))
+        sendPasswordResetEmail(firebaseAuth, email)
     }
-    const isLogin = user ? true : false
 
     const signinWithGoogle = async () => {
         const resp = await signInWithPopup(firebaseAuth, googleProvider)
         return resp
     }
 
-    const logOut = ()=>firebaseAuth.signOut()
+    const logOut = () => {
+        firebaseAuth.signOut()
+    }
+
+    const isLogin = user ? true : false
 
     return <FirebaseContext.Provider value={{
         signupUserWithEmailAndPass,
@@ -79,13 +85,13 @@ export const FirebaseProvider = (props) => {
         userDetails,
         setUserDetails,
         signinWithGoogle,
-        signup
+        signup,
+        user
     }}>
         {props.children}
     </FirebaseContext.Provider>
 }
 
 export const useFirebase = () => {
-    const navigate = useNavigate()
     return useContext(FirebaseContext)
 }

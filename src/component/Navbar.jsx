@@ -9,6 +9,13 @@ import { RiKeyLine } from "react-icons/ri";
 import { MdCreditScore } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaOpencart } from "react-icons/fa";
+import useWindowResize from '../custom hooks/WindowResize';
+import { PiTShirt } from "react-icons/pi";
+import { CiSearch } from "react-icons/ci";
+import { GiLargeDress } from "react-icons/gi";
+import { TbSettingsBolt } from "react-icons/tb";
+import { GiBigDiamondRing } from "react-icons/gi";
+import { GiConverseShoe } from "react-icons/gi";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -19,6 +26,8 @@ const Navbar = () => {
     const firebase = useFirebase(); // Get the firebase object from the context
     const item = useSelector(state => state.cart)
     const [profile, setProfile] = useState(false)
+    const myUser = useSelector(state => state.profile)
+    const { width } = useWindowResize()
 
     const toggleMenu = () => {
         setOpen(prevOpen => !prevOpen);
@@ -34,7 +43,7 @@ const Navbar = () => {
 
     const navLinks = [
         { title: "Home", href: "/" },
-        { title: "All-Products", href: "/allproducts" },
+        { title: "Products", href: "/allproducts" },
         { title: "FAQs", href: "/faqs" },
         { title: "Contact", href: "/contact" },
     ];
@@ -104,13 +113,53 @@ const Navbar = () => {
         );
     };
 
+
+    const fadeInUpAnimation = {
+        hidden: {
+            opacity: 0,
+            scale: 0,
+            x: 500
+        },
+        show: {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            transition: {
+                duration: 3.5,
+            },
+        },
+    };
+
+
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                delayChildren: 2.5,
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        }
+    };
+
+
     useEffect(() => {
-        let username = firebase.userDetails.email?.split('@')[0].match(/[a-zA-Z]+/);
-        username = username ? username[0] : "Unknown";
-        setName(username)
-        const Image = username?.charAt(0)
-        setUserImage(Image)
-    }, [firebase.isLogin])
+        if (myUser.loginuser && firebase.userDetails) {
+            let username = firebase.userDetails.email?.split('@')[0].match(/[a-zA-Z]+/);
+            console.log(firebase.userDetails)
+            username = username ? username[0] : "Unknown";
+            setName(username);
+            const Image = username?.charAt(0);
+            setUserImage(Image);
+        }
+    }, [myUser.loginuser, firebase.userDetails]);
 
     const toggleProfile = () => {
         setProfile(!profile)
@@ -118,13 +167,15 @@ const Navbar = () => {
 
     const handleSignOut = () => {
         firebase.logOut(); // Call the signOut function from the firebase object
+        toggleProfile()
     }
 
-     const hasLogin = () => {
-        return firebase.isLogin ?
+    const hasLogin = () => {
+        const isLoggedIn = myUser.loginuser;
+
+        return isLoggedIn ? (
             <div className='flex justify-between text-center gap-2 sm:gap-16  md:mr-10'>
-                <div className='flex justify-between text-center relative gap-1 cursor-pointer'
-                    onClick={() => navigate('/cart')}>
+                <div className='flex justify-between text-center relative gap-1 cursor-pointer' onClick={() => navigate('/cart')}>
                     <div className='mt-1 text-3xl sm:mt-3 md:pt-1 md:text-3xl'><GiShoppingCart /></div>
                     <NavLink className='hidden md:block mt-2.5 text-2xl font-aleg md:mr-10'>Cart</NavLink>
                     {item.length > 0 ?
@@ -132,40 +183,26 @@ const Navbar = () => {
                             <h6 className='text-xs'>{item.length}</h6>
                         </div> : null
                     }
-
                 </div>
-
                 <div className='md:pr-3'>
-                    <div onClick={toggleProfile}
-                        className='flex text-center justify-center mt-1 px-2.5 py-1 md:text-lg uppercase bg-[#7F57F1]
-                         text-white rounded-full md:mt-1 md:p-3'>
+                    <div onClick={() => setProfile(!profile)} className='flex text-center justify-center mt-1 px-2.5 py-1 md:text-lg uppercase bg-[#7F57F1] text-white rounded-full md:mt-1 md:p-3'>
                         {userImage}
                     </div>
                     {profile && (
                         <div className="absolute z-50 right-2 mt-3 w-64 flex justify-between text-center overflow-hidden cursor-pointer rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                             <div className="w-full" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-
                                 <div className="px-4 py-10 w-full text-sm text-gray-700 bg-sky-200 uppercase">{name}</div>
                                 <div className=' mx-auto absolute left-24 top-16'>
-                                    <div
-                                        className='flex text-center justify-center w-16 h-16 p-3 text-2xl uppercase bg-[#7F57F1] text-white rounded-full ring-2 ring-white'>
-                                        {userImage}
-                                    </div>
+                                    <div className='flex text-center justify-center w-16 h-16 p-3 text-2xl uppercase bg-[#7F57F1] text-white rounded-full ring-2 ring-white'>{userImage}</div>
                                 </div>
-
-                                <div className="px-4 py-2 text-sm text-gray-500 mt-10">{firebase.userDetails.email}</div>
+                                <div className='mx-auto pt-10 mb-3 text-sm'>{firebase.userDetails.email}</div>
                                 <div className='flex text-center justify-center gap-2 mb-4'>
                                     <div className='bg-sky-200 p-2 rounded-full'><RiKeyLine /></div>
                                     <div className='bg-sky-200 p-2 rounded-full'><MdCreditScore /></div>
                                     <div className='bg-sky-200 p-2 rounded-full'><IoLocationOutline /></div>
                                 </div>
                                 <hr />
-                                <button
-                                    type="button"
-                                    className="block w-full px-4 py-2 text-center text-sm text-gray-700 hover:bg-gray-100"
-                                    role="menuitem"
-                                    onClick={handleSignOut}
-                                >
+                                <button type="button" className="block w-full px-4 py-2 text-center text-sm text-gray-700 hover:bg-gray-100" role="menuitem" onClick={handleSignOut}>
                                     Sign out
                                 </button>
                             </div>
@@ -173,106 +210,184 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
-            :
-            <div className="flex justify-between md:gap-5">
-
-                <button
-                    className="bg-[#7F57F1] text-white text-sm p-1 px-1.5 rounded-lg md:hidden"
-                    onClick={() => navigate('/signup')}
-                >
+        ) : (
+            <div className="flex justify-between md:gap-5 md:pr-8">
+                <button className=" ring-1 text-sm p-1 px-1.5 rounded-lg md:hidden" onClick={() => navigate('/signup')}>
                     Sign up
                 </button>
-
-                <button
-                    className="hidden bg-[#7F57F1] text-white md:block md:text-md md:p-2 md:px-3 md:rounded-lg"
-                    onClick={() => navigate('/signup')}
-                >
+                <button className="hidden ring-1 ring-black  md:block md:text-lg  md:px-3 md:rounded-lg" onClick={() => navigate('/signup')}>
                     Sign up
                 </button>
-                <button
-                    className="hidden bg-[#7F57F1] text-white text-md p-2 px-3 rounded-lg md:block"
-                    onClick={() => navigate('/login')}
-                >
+                <button className="hidden ring-1 ring-black text-lg px-3 rounded-lg md:block" onClick={() => navigate('/login')}>
                     Log in
                 </button>
             </div>
+        );
     };
 
 
- return (
-        <div className="flex justify-between sticky top-0 z-10 bg-white text-center shadow-md p-2 py-3 sm:px-6 md:gap-10 md:py-2 md:px-10">
-            <div
-                onClick={toggleMenu}
-                className="mt-1.5 text-2xl md:hidden"
-            >
-                <RiMenuUnfoldLine />
-            </div>
-            <div className="flex gap-2 text-center text-2xl text-[#7F57F1] md:text-xl md:gap-20 md:ml-10">
-                <div className="flex items-center text-3xl md:text-4xl md:mt-1.5 justify-between w-full md:w-auto">
-                    <div className="flex items-center">
-                        <div className='hidden sm:block'><FaOpencart /></div>
-                        <h1 className="ml-6 font-dance font-extrabold md:ml-0">Necessities</h1>
-                    </div>
-                    <AnimatePresence>
-                        {open && (
-                            <motion.div
-                                variants={menuVars}
-                                initial="initial"
-                                animate="animate"
-                                exit="exit"
-                                className="fixed z-10 left-0 top-0 w-full h-screen p-10 origin-top bg-[#7F57F1] text-white  md:hidden"
-                            >
-                                <div className="flex h-full flex-col">
-                                    <div className="flex justify-between">
-                                        <h1 className="text-5xl font-extrabold"><FaOpencart /></h1>
-                                        <p
-                                            className="cursor-pointer text-sm pt-4 font-roboto "
-                                            onClick={toggleMenu}
-                                        >
-                                            Close
-                                        </p>
-                                    </div>
-                                    <motion.div
-                                        variants={containerVars}
-                                        initial="initial"
-                                        animate="open"
-                                        exit="initial"
-                                        className="flex flex-col h-full justify-center font-aleg items-center gap-4 "
-                                    >
-                                        {navLinks.map((link, index) => {
-                                            return (
-                                                <div className="overflow-hidden " key={index}>
-                                                    <MobileNavLink
-                                                        title={link.title}
-                                                        href={link.href}
-                                                    />
-                                                </div>
-                                            );
-                                        })}
-                                    </motion.div>
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
-            </div>
-
-            <AnimatePresence>
-                <motion.div
-                    initial="initial"
-                    animate="open"
-                    variants={mobileLinkVars}
-                    className="hidden md:flex md:gap-5 md:text-center md:font-semibold overflow-hidden"
+    return (
+        <>
+            <div className={`sticky top-0 z-40 flex justify-between text-center shadow-sm bg-white p-2 py-3 sm:px-6 md:gap-10 md:py-2 md:px-10`}>
+                {/* First child div */}
+                <div
+                    onClick={toggleMenu}
+                    className="mt-1.5 text-2xl md:hidden"
                 >
-                    {navLinks.map((link, index) => (
-                        <MobileNavLink key={index} title={link.title} href={link.href} />
-                    ))}
+                    <RiMenuUnfoldLine />
+                </div>
+                <div className="flex gap-2 text-center bg-white text-2xl md:text-xl md:gap-20 md:ml-10">
+                    <div className="flex items-center text-[#84019F] text-3xl md:text-4xl md:mt-1.5 justify-between w-full md:w-auto">
+                        <div className="flex items-center">
+                            <div className='hidden sm:block'><FaOpencart /></div>
+                            <h1 className="ml-6 font-dance font-extrabold md:ml-0">Necessities</h1>
+                        </div>
+                        <AnimatePresence>
+                            {open && (
+                                <motion.div
+                                    variants={menuVars}
+                                    initial="initial"
+                                    animate="animate"
+                                    exit="exit"
+                                    className="fixed z-10 left-0 top-0 w-full h-screen p-10 origin-top bg-[#7F57F1] text-white  md:hidden"
+                                >
+                                    <div className="flex h-full flex-col">
+                                        <div className="flex justify-between">
+                                            <h1 className="text-5xl font-extrabold"><FaOpencart /></h1>
+                                            <p
+                                                className="cursor-pointer text-sm pt-4 font-roboto "
+                                                onClick={toggleMenu}
+                                            >
+                                                Close
+                                            </p>
+                                        </div>
+                                        <motion.div
+                                            variants={containerVars}
+                                            initial="initial"
+                                            animate="open"
+                                            exit="initial"
+                                            className="flex flex-col h-full justify-center font-aleg items-center gap-4 "
+                                        >
+                                            {navLinks.map((link, index) => {
+                                                return (
+                                                    <div className="overflow-hidden " key={index}>
+                                                        <MobileNavLink
+                                                            title={link.title}
+                                                            href={link.href}
+                                                        />
+                                                    </div>
+                                                );
+                                            })}
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+
+                    
+                    </div>
+                </div>
+
+                <AnimatePresence>
+                        <motion.div
+                            initial="initial"
+                            animate="open"
+                            variants={mobileLinkVars}
+                            className="hidden md:flex md:gap-5 md:text-center md:font-semibold overflow-hidden"
+                        >
+                            {navLinks.map((link, index) => (
+                                <MobileNavLink key={index} title={link.title} href={link.href} />
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {hasLogin()}
+            </div>
+
+            
+
+            {/* Second child div */}
+            <div className='hidden md:flex justify-between gap-96 py-2 shadow-md'>
+                <AnimatePresence>
+                    <motion.div initial='hidden' variants={containerVariants} animate="visible"
+                        className='flex gap-4 text-lg font-normal pt-2  pl-12'
+                         onClick={()=>navigate('/allproducts')}>
+                        <motion.h4 variants={itemVariants}>Popular Search : </motion.h4>
+                        <motion.h3 className=' cursor-pointer hover:underline'
+                         variants={itemVariants}>Men </motion.h3>
+                        <motion.h3 className=' cursor-pointer hover:underline'
+                         variants={itemVariants}>Women</motion.h3>
+                        <motion.h3 className=' cursor-pointer hover:underline'
+                         variants={itemVariants}>Shoes</motion.h3>
+                        <motion.h3 className=' cursor-pointer hover:underline'
+                        variants={itemVariants}>Jewelery</motion.h3>
+                        <motion.h3 className=' cursor-pointer hover:underline'
+                         variants={itemVariants}>Electronics</motion.h3>
+                        <motion.h3 className=' cursor-pointer hover:underline'
+                         variants={itemVariants}>Accessories</motion.h3>
+                    </motion.div>
+                </AnimatePresence>
+
+                <motion.div
+                    initial="hidden"
+                    animate="show"
+                    variants={fadeInUpAnimation}
+                    className='mx-auto flex gap-2 px-3'
+                >
+                    <input type="text" placeholder='Search' className='px-6 py-2 ring-1 rounded-full  md:w-72 md:ml-1' />
+                    <div className='p-1 bg-[#84019F] text-white  text-3xl rounded-full font-extrabold'><CiSearch /></div>
                 </motion.div>
-            </AnimatePresence>
+            </div>
 
-            {hasLogin()}
 
-        </div>
+            <div>
+                <marquee className="md:hidden overflow-auto" behavior="scroll" direction="left">
+                    <div className='inline-flex gap-3 pt-0.5'>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl mt-1 text-blue-600'><PiTShirt /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Men's</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl text-[#FFC216] mt-1'><GiLargeDress /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Women's</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl text-black mt-1'><TbSettingsBolt /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Electronics</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl mt-1'><GiBigDiamondRing /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Jewellery</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl text-[#F14343] mt-1'><GiConverseShoe /></div>
+                            <h1 className='text-lg font-aleg font-semibold '>Shoes</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl mt-1 text-blue-600'><PiTShirt /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Men's</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-lg text-[#FFC216] mt-1'><GiLargeDress /></div>
+                            <h1 className='text-xl font-aleg font-semibold'>Women's</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl text-black mt-1'><TbSettingsBolt /></div>
+                            <h1 className='text-lg font-aleg font-semibold '>Electronics</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl mt-1'><GiBigDiamondRing /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Jewellery</h1>
+                        </div>
+                        <div className='p-2 text-center flex justify-center gap-2'>
+                            <div className='text-xl text-[#F14343] mt-1'><GiConverseShoe /></div>
+                            <h1 className='text-lg font-aleg font-semibold'>Shoes</h1>
+                        </div>
+                    </div>
+                </marquee>
+            </div>
+
+        </>
     );
 
 };

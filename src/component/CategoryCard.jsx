@@ -2,19 +2,6 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 function CategoryCard() {
-  const images = [
-    './images/menswear.jpeg',
-    './images/womenswear.jpg',
-    './images/electronics.jpg',
-    './images/jewelery.jpg',
-    './images/menswear.jpeg',
-    './images/womenswear.jpg',
-    './images/electronics.jpg',
-    './images/jewelery.jpg',
-    './images/menswear.jpeg',
-    './images/womenswear.jpg',
-  ];
-
 
   return (
     <div className="desktop-carousel-container">
@@ -22,18 +9,18 @@ function CategoryCard() {
         <Carousel.Item >
           <div className="carousel-item-wrapper">
             <img
-              className="d-block w-96 object-cover h-96 mr-2"
+              className="w-96 object-cover md:block h-96 mr-2"
+              src='./images/manpaying.jpg'
+              alt="Second slide"
+            />
+            <img
+              className="hidden d-block w-96 object-cover h-96 mr-2"
               src='./images/menswear.jpeg'
               alt="First slide"
             />
             <img
-              className="hidden  w-96 object-cover md:block h-96 mr-2"
-              src='./images/womenswear.jpg'
-              alt="Second slide"
-            />
-            <img
               className="hidden  w-96 object-cover md:block h-96 "
-              src='./images/electronics.jpg'
+              src='./images/manshopping.jpg'
               alt="Second slide"
             />
           </div>
@@ -42,17 +29,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="d-block w-96 object-cover h-96 mr-2"
-              src='./images/womenswear.jpg'
+              src='./images/menswear.jpeg'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2"
-              src='./images/electronics.jpg'
+              src='./images/manshopping.jpg'
               alt="Second slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96"
-              src='./images/jewelery.jpg'
+              src='./images/markus.jpg'
               alt="Second slide"
             />
           </div>
@@ -61,17 +48,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="d-block w-96 object-cover h-96 mr-2"
-              src='./images/electronics.jpg'
+              src='./images/manshopping.jpg'
               alt="Second slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2"
-              src='./images/womenswear.jpg'
+              src='./images/markus.jpg'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2"
-              src='./images/menswear.jpeg'
+              src='./images/chris.jpg'
               alt="First slide"
             />
           </div>
@@ -80,17 +67,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2"
-              src='./images/jewelery.jpg'
+              src='./images/markus.jpg'
               alt="Second slide"
             />
             <img
               className="d-block w-96 object-cover h-96 mr-2"
-              src='./images/menswear.jpeg'
+              src='./images/chris.jpg'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2"
-              src='./images/womenswear.jpg'
+              src='./images/leftbag.jpg'
               alt="First slide"
             />
           </div>
@@ -99,17 +86,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 "
-              src='./images/electronics.jpg'
+              src='./images/chris.jpg'
               alt="Second slide"
             />
             <img
               className="d-block w-96 object-cover h-96 mr-2"
-              src='./images/jewelery.jpg'
+              src='./images/leftbag.jpg'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 "
-              src='./images/menswear.jpeg'
+              src='./images/rightbag.jpg'
               alt="First slide"
             />
           </div>

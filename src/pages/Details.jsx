@@ -10,6 +10,7 @@ import { addItem } from '../redux/slices/addToCartSlice';
 import { useFirebase } from '../contextAPI/Firebase';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
+import { FaCheck } from "react-icons/fa";
 
 
 
@@ -23,16 +24,18 @@ const Details = () => {
     const navigate = useNavigate();
     const firebase = useFirebase()
     const dispatch = useDispatch()
+    const [isLoading, setIsLoading] = useState(false);
+    const [showCheck, setShowCheck] = useState(false);
 
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
 
     useEffect(() => {
         usefetch().then((resp) => setAllProduct(resp));
         const filtered = allProduct.filter((value) => value.id === ID);
-        setHasFilter(filtered); 
+        setHasFilter(filtered);
     }, [allProduct]);
 
     // Function to handle quantity change
@@ -63,10 +66,9 @@ const Details = () => {
 
     const handleCart = (event) => {
         if (firebase.isLogin) {
-            event.stopPropagation();
+            setIsLoading(true);
             console.log('clicked')
-            console.log(hasFilter)
-            let totalprice = Math.round(hasFilter[0].price*quantity)
+            let totalprice = Math.round(hasFilter[0].price * quantity);
             dispatch(addItem({
                 image: hasFilter[0].image,
                 title: hasFilter[0].title,
@@ -76,8 +78,11 @@ const Details = () => {
                 id: hasFilter[0].id,
                 qty: quantity
             }));
-        }
-        else{
+            setTimeout(() => {
+                setIsLoading(false);
+                setShowCheck(true);
+            }, 1000);
+        } else {
             event.stopPropagation();
             toast.error('Signup Required', {
                 position: "top-rigth",
@@ -89,8 +94,7 @@ const Details = () => {
                 progress: undefined,
             });
         }
-
-    }
+    };
 
     return (
         <Suspense fallback={<div className='text-start'>Loading...</div>}>
@@ -106,9 +110,17 @@ const Details = () => {
                                     src={data.image} alt={data.title} className='w-80 rounded-lg shadow-lg mb-6' />
                                 <div className='flex justify-between md:justify-start space-x-12'>
                                     <button onClick={() => navigate(-1)} className='bg-red-500 p-3 text-white font-semibold rounded-lg hover:bg-red-400 ml-4 text-nowrap'>Go Back</button>
-                                    <button
-                                        onClick={handleCart}
-                                        className='bg-[#7F57F1] p-3 text-white font-semibold rounded-lg hover:bg-[#6A48D6] text-nowrap'>Add To Cart</button>
+                                    <button onClick={handleCart} className={`bg-[#7F57F1] flex text-center px-3 py-2 gap-3 font-roboto font-medium rounded-lg text-white hover:bg-red-500 relative`}>
+                                        <h6 className='text-nowrap mt-2.5'>Add to cart</h6>
+                                        <div className='mt-2.5'>
+                                            {isLoading && (
+                                                <div className="spinner"></div> 
+                                            )}
+                                            {showCheck && (
+                                                <FaCheck className="checkmark" />
+                                            )}
+                                        </div>
+                                    </button>
                                 </div>
                                 <div className="mt-10">
                                     <label htmlFor="quantity" className="text-2xl font-semibold text-[#7F57F1] font-serif">Quantity:</label>

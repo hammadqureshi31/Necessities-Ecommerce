@@ -1,3 +1,9 @@
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+
 .navActive.active {
   font-weight:400;
   font-size: larger;
@@ -74,5 +80,54 @@
     justify-content: space-between;
   }
 }
+
+
+
+/* Card and Cart animation  */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+
+
+/* Sigup and login animation */
+@keyframes dotspin {
+  0% {
+    transform: rotate(0deg) scale(1) opacity(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2) opacity(0.5);
+  }
+  100% {
+    transform: rotate(360deg) scale(1) opacity(1);
+  }
+}
+
+.dotspinner {
+  border: 4px dotted rgba(0, 0, 0, 0.1); /* Change solid to dotted */
+  border-top: 4px dotted #fff; /* Change solid to dotted */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+
+
+
 
 

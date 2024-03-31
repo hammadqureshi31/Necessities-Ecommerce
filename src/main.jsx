@@ -14,6 +14,8 @@ import { FirebaseProvider } from './contextAPI/Firebase.jsx'
 import Cart from './pages/Cart.jsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store.js'
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -32,6 +34,19 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path='cart' element={<Cart />} />
             </Route>
           </Routes>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
         </HashRouter>
       </FirebaseProvider>
     </Provider>

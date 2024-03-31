@@ -39,7 +39,7 @@ function Visitors() {
                 <div className="counter">{salesCount}</div>
                 <div className="label font-aleg italic text-2xl">Product Sales Today</div>
             </div>
-            <div className="card bg-purple">
+            <div className="card bg-[#84019F]">
                 <div className="counter text-white font-roboto font-extrabold">{liveRating.toFixed(1)}</div>
                 <div className='label text-white font-roboto'>Live Rating</div>
             </div>
