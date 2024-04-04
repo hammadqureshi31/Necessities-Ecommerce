@@ -319,7 +319,7 @@ const Navbar = () => {
 
 
             {/* Second child div */}
-            <div className={`hidden md:flex justify-between overflow-hidden gap-96 py-2 shadow-md md:w-[${width}px]`}>
+            <div className={`hidden md:flex justify-between overflow-hidden gap-72 py-2 shadow-md md:w-[${width}px]`}>
                 <AnimatePresence>
                     <motion.div initial='hidden' variants={containerVariants} animate="visible"
                         className='flex gap-4 text-lg font-normal pt-2  pl-12'
