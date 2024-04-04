@@ -111,7 +111,7 @@ const Landing = () => {
           </div>
 
           {/* Main Content */}
-          <div className='flex justify-evenly'>
+          <div className='flex justify-between'>
             <motion.div initial='hidden' animate="show" variants={imageAnimation}>
               <img src="./images/Image2.svg" alt="" className='hidden md:inline-block ml-14' />
             </motion.div>
