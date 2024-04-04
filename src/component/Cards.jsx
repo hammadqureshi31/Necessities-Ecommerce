@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/slices/addToCartSlice';
 import { useFirebase } from '../contextAPI/Firebase';
-import { ToastContainer, toast } from 'react-toastify';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaCheck } from "react-icons/fa";
+import { FcRating } from "react-icons/fc";
 
 
 const Card = ({ data }) => {
@@ -32,6 +33,7 @@ const Card = ({ data }) => {
         if (firebase.isLogin) {
             event.stopPropagation();
             setIsLoading(true); // Start loading animation
+            console.log('clicked')
             try {
                 let totalprice = Math.round(data.price * 1);
                 dispatch(addItem({
@@ -62,41 +64,47 @@ const Card = ({ data }) => {
         <div onClick={() => handleDetail(data.id)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`flex flex-col gap-3 p-3 mb-8 justify-center text-left border w-[300px] rounded-2xl
+            className={` mx-auto flex flex-col gap-3 p-3 mb-8 justify-center text-left border w-[300px] rounded-2xl
              ${hovered ? 'ring-[#7F57F1] ring-1 transform hover:scale-105' : ''}`}
         >
             <div className='mx-auto'>
                 <img src={`${data.image}`} alt='' className='size-40' />
             </div>
             <div>
-                <h1 className='font-semibold font-aleg text-xl tracking-wide'>
-                    {data.title.slice(0, 25)}
+                <h1 className=' font-medium font-marg text-lg tracking-wide'>
+                    {data.title.slice(0, 20)}
                 </h1>
             </div>
             <div>
-                <p className='font-roboto font-normal text-sm opacity-45'>
+                <p className='font-roboto font-normal text-md opacity-45'>
                     {data.description.slice(0, 100)}
                 </p>
             </div>
-            <div className='flex justify-between gap-3 mx-auto'>
-                <p className='font-aleg text-xl tracking-wide'>rating:
-                    <span className='text-[#84019F] font-roboto text-lg tracking-wide'> ({data.rating.rate})</span></p>
-                <h1 className='font-aleg text-xl font-medium'>price:Rs <span 
-                className='text-[#84019F] font-roboto text-xl font-semibold underline'>{data.price}</span></h1>
+
+            <div className='flex justify-between gap-24 mx-auto'>
+                <h1 className='text-2xl font-medium'>$ <span
+                    className='text-[#84019F] text-2xl font-semibold font-roboto'>{data.price}</span></h1>
+                <p className='flex text-2xl tracking-wide'><FcRating className='mt-1' />
+                    <span className='text-[#84019F] text-2xl tracking-wide'>&nbsp;{data.rating.rate}</span></p>
+
             </div>
-            <div className=''>
+            <div className='flex justify-between items-center'>
                 <button onClick={handleCart}
-                    className={`bg-[#84019F] px-3 py-2 flex gap-3 font-roboto text-center rounded-lg text-white hover:bg-red-500 relative`}>
-                     <h6 className=''>Add to cart</h6>   
+                    className={`bg-[#84019F] px-3 py-2 flex gap-3 font-roboto text-center rounded-lg text-white hover:bg-red-500 relative`}
+                >
+                    <h6 className=''>Add to cart</h6>
                     <div className=''>
-                    {isLoading && (
-                        <div className="spinner" />
-                    )}
-                    {showCheck && (
-                        <FaCheck className="checkmark" />
-                    )}
+                        {isLoading && (
+                            <div className="spinner" />
+                        )}
+                        {showCheck && (
+                            <FaCheck className="checkmark" />
+                        )}
                     </div>
                 </button>
+                <div>
+                    <h1 className=' font-semibold text-xl opacity-45 mr-2'>{data.rating.count} Sold</h1>
+                </div>
             </div>
         </div>
     );

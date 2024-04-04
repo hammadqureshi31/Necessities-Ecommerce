@@ -48,12 +48,14 @@ const Landing = () => {
     hidden: {
       opacity: 0,
       scale: 0.5,
+      x: -200,
     },
     show: {
       opacity: 1,
       scale: 1,
+      x: 0,
       transition: {
-        duration: 1,
+        duration: 1.5,
         ease: "easeIn",
       },
     },
@@ -120,13 +122,13 @@ const Landing = () => {
                 initial="hidden"
                 animate="show"
                 variants={fadeInUpAnimation}
-                className='font-medium font-roboto tracking-wider text-xl sm:w-[840px] sm:mx-auto md:text-3xl 
+                className='font-medium font-marg tracking-wider text-xl sm:w-[840px] sm:mx-auto md:text-3xl 
                 md:text-left'
               >
                 Discover the latest trends in
-                <span className='text-[#84019F] text-3xl font-extrabold font-aleg italic tracking-widest'> Clothing</span>,
-                <span className='text-[#84019F] text-3xl font-extrabold font-aleg italic tracking-widest'> Electronics</span>,
-                <span className='text-[#84019F] text-3xl font-extrabold font-aleg italic tracking-widest'> Jewellery </span>
+                <span className='text-[#84019F] text-3xl font-right  '> Clothing</span>,
+                <span className='text-[#84019F] text-3xl font-right '> Electronics</span>,
+                <span className='text-[#84019F] text-3xl font-right  '> Jewellery </span>
                 and everyday essentials.
               </motion.h1>
 
@@ -134,7 +136,7 @@ const Landing = () => {
                 initial="hidden"
                 animate="show"
                 variants={fadeInUpAnimation}
-                className='font-normal opacity-50 text-lg sm:text-center md:text-left'
+                className='font-normal opacity-50 sm:text-lg sm:text-center md:text-left'
               >
                 Explore our diverse range of categories
               </motion.p>
@@ -146,7 +148,7 @@ const Landing = () => {
                 className='mx-auto flex gap-2 md:hidden'
               >
                 <input type="text" placeholder='Search' className='px-6 py-2 border rounded-2xl shadow-sm md:w-72 md:ml-1' />
-                <div className='bg-[#7F57F1] p-2 text-white text-2xl rounded-full font-bold'><CiSearch /></div>
+                <div className='bg-[#84019F] p-2 text-white text-2xl rounded-full font-bold'><CiSearch /></div>
               </motion.div>
 
               <motion.div variants={container} initial="hidden" animate="visible" className='hidden md:flex md:flex-wrap  md:gap-12' onClick={() => navigate('/allproducts')}>
@@ -180,7 +182,7 @@ const Landing = () => {
 
         </div>
 
-        <div className='mt-10 mb-16 text-left font-bold font-aleg italic text-3xl md:ml-14 md:mt-20'>
+        <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20'>
           Our Latest Collections
         </div>
 
@@ -192,7 +194,7 @@ const Landing = () => {
           <img src="./images/Banner.svg" alt="" className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px]`}/>
         </div>
 
-        <div className='mt-10 mb-16 text-left font-bold font-aleg italic text-3xl md:ml-14 md:mt-20'>
+        <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20'>
           Our Recommendation For You
         </div>
 
@@ -200,7 +202,7 @@ const Landing = () => {
           <Recommendation />
         </div>
 
-        <div className='mt-16 text-left font-bold font-aleg italic tracking-wider text-3xl md:ml-14'>
+        <div className='mt-16 text-left px-2 font-bold font-marg text-2xl md:ml-14'>
           Gallery
         </div>
 
@@ -208,13 +210,13 @@ const Landing = () => {
           <CategoryCard />
         </div>
 
-        <div className='text-center mt-6 text-[#84019F] font-roboto'>
-          <p className='text-lg px-10 md:w-[1100px] md:mx-auto'>
+        <div className='text-center mt-6 text-[#84019F] font-roboto '>
+          <p className=' px-3 sm:text-lg sm:px-10 md:w-[1100px] md:mx-auto'>
             Explore our captivating gallery filled with stunning images capturing memorable moments and breathtaking scenes. Immerse yourself in a visual journey that will inspire and delight your senses.
           </p>
         </div>
 
-        <div className='mt-16 mb-16 text-left font-bold font-aleg italic text-3xl tracking-wider md:ml-14'>
+        <div className='mt-16 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14'>
           View Statistics
         </div>
 

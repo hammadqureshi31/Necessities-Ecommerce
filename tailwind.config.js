@@ -9,7 +9,9 @@ export default {
     fontFamily: {
       aleg: ["Alegreya","serif"],
       roboto: ["Roboto","sans-serif"],
-      dance: "Dancing Script"
+      dance: "Dancing Script",
+      right: ['Righteous','san-serif'],
+      marg: ['Merriweather', 'sans-serif'] 
     }
   },
   plugins: [],

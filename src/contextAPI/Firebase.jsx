@@ -57,8 +57,9 @@ export const FirebaseProvider = (props) => {
     };
 
     const loginUserWithEmailAndPass = (email, password) => {
-        signInWithEmailAndPassword(firebaseAuth, email, password).then(() => setUser(true))
-    }
+        return signInWithEmailAndPassword(firebaseAuth, email, password)
+    };
+
 
     const sendEmailForgotPass = (email) => {
         sendPasswordResetEmail(firebaseAuth, email)
@@ -86,7 +87,8 @@ export const FirebaseProvider = (props) => {
         setUserDetails,
         signinWithGoogle,
         signup,
-        user
+        user,
+        setUser
     }}>
         {props.children}
     </FirebaseContext.Provider>

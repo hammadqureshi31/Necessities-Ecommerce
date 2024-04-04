@@ -1,8 +1,9 @@
 // PopularProducts.js
 import React, { useEffect, useState, Suspense } from 'react';
 import { usefetch } from '../custom hooks/Fetching';
-
-const Cards = React.lazy(() => import('./Cards'));
+import { ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Cards from './Cards';
 
 const PopularProducts = () => {
   const [collection, setCollection] = useState([]);
@@ -27,6 +28,19 @@ const PopularProducts = () => {
           </Suspense>
         )}
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </>
   );
 };

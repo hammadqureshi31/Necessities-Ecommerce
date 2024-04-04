@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFirebase } from '../contextAPI/Firebase';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignupSchema = Yup.object().shape({
@@ -19,28 +19,27 @@ const Signup = () => {
 
   useEffect(() => {
     if (firebase.signup || firebase.isLogin) {
-      // Use navigate from react-router-dom to redirect to the login page
       navigate('/login');
     }
-  }, [firebase.signup, firebase.isLogin, navigate]); // Include navigate in the dependency array
+  }, [firebase.signup, firebase.isLogin, navigate]);
 
   const handleSubmit = async (values) => {
     try {
       setIsLoading(true);
       await firebase.signupUserWithEmailAndPass(values.email, values.password);
-      setIsLoading(false);
-      // After successful signup, navigate to the login page
-      navigate('/login');
-      toast.success("Signup successful!");
+      setTimeout(() => {
+        toast.success("Signup successful!");
+        setIsLoading(false);
+      }, 1500);
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.message); // Simplified error handling
+      toast.error(error.message);
     }
   };
 
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen py-8 px-4 bg-gray-100'>
+    <div className='flex flex-col items-center pt-10  min-h-screen px-4 bg-gray-100'>
       <div className='w-full max-w-md'>
 
         <h1 className='text-3xl font-bold text-center mb-4'>Join Our Community</h1>
@@ -85,13 +84,14 @@ const Signup = () => {
                 <button
                   type='submit'
                   disabled={isSubmitting}
-                  className='w-full px-4 py-3 mt-3 text-lg text-white bg-indigo-500 rounded-lg hover:bg-indigo-700 focus:outline-none'
+                  className='w-full px-4 py-3 mt-3 text-lg text-white bg-[#84019F] rounded-lg hover:bg-sky-500 focus:outline-none'
                 >
                   {isLoading ? <div className="dotspinner mx-auto" /> : 'Sign up'}
                 </button>
               </Form>
             )}
           </Formik>
+          <ToastContainer />
         </div>
         <div className='mt-4 text-center'>
           <p className='text-gray-600'>Already have an account?</p>

@@ -3,7 +3,7 @@ import React from 'react';
 const FAQs = () => {
     return (
         <div className="container mx-auto pt-16 px-4 md:px-0 max-w-7xl mb-14">
-            <h1 className="text-3xl font-aleg font-bold text-center mb-10 text-[#7F57F1]">Frequently Asked Questions</h1>
+            <h1 className="text-3xl font-marg font-semibold text-center mb-10">Frequently Asked Questions</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <Accordion title="What is Lorem Ipsum?" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." />
@@ -52,7 +52,7 @@ const Accordion = ({ title, content }) => {
             </div>
             {isOpen && (
                 <div className="p-4 bg-white">
-                    <p className="text-gray-700 ">{content}</p>
+                    <p className="text-gray-700 font-roboto">{content}</p>
                 </div>
             )}
         </div>

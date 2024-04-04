@@ -32,16 +32,16 @@ function Visitors() {
     return (
         <div className="container">
             <div className="card">
-                <div className="counter">{userCount}</div>
-                <div className="label font-aleg italic text-2xl">Users Visiting Today</div>
+                <div className="counter">{userCount}+</div>
+                <div className="label font-roboto text-xl">Users Visiting Today</div>
             </div>
             <div className="card">
                 <div className="counter">{salesCount}</div>
-                <div className="label font-aleg italic text-2xl">Product Sales Today</div>
+                <div className="label font-roboto text-xl">Product Sales Today</div>
             </div>
             <div className="card bg-[#84019F]">
-                <div className="counter text-white font-roboto font-extrabold">{liveRating.toFixed(1)}</div>
-                <div className='label text-white font-roboto'>Live Rating</div>
+                <div className="counter text-white font-roboto font-extrabold">{liveRating.toFixed(1)}/5</div>
+                <div className='label text-white font-marg'>Live Rating</div>
             </div>
         </div>
     );

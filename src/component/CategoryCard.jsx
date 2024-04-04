@@ -14,12 +14,12 @@ function CategoryCard() {
               alt="Second slide"
             />
             <img
-              className="hidden d-block w-96 object-cover h-96 mr-2"
+              className="hidden w-96 object-cover md:block h-96 mr-2"
               src='./images/menswear.jpeg'
               alt="First slide"
             />
             <img
-              className="hidden  w-96 object-cover md:block h-96 "
+              className="hidden w-96 object-cover md:block h-96 "
               src='./images/manshopping.jpg'
               alt="Second slide"
             />

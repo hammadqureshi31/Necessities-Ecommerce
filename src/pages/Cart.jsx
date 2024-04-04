@@ -40,16 +40,16 @@ const Cart = () => {
                 <img src={item.image} alt={item.title} className="w-40 h-40 mb-4 md:w-56 md:h-56 mr-4 md:mr-8 rounded-md" />
                 <div className="flex flex-col md:flex-row md:justify-between w-full">
                   <div>
-                    <h2 className="text-lg font-semibold">{item.title.slice(0, 50)}</h2>
-                    <p className="hidden sm:block hitext-sm text-gray-600">{item.description.slice(0, 500)}</p>
+                    <h2 className="text-lg font-medium font-marg">{item.title.slice(0, 50)}</h2>
+                    <p className="hidden sm:block text-md mt-2 opacity-75 text-gray-600">{item.description.slice(0, 500)}</p>
                     <div className="flex sm:flex-col md:flex-row items-center gap-4 mt-5 md:mt-0">
                       <div className="flex items-center">
                         <p className="text-lg font-semibold mr-2">Rate:</p>
-                        <p className="text-lg font-semibold text-blue-600">({item.rating})</p>
+                        <p className="text-lg font-semibold text-sky-500">({item.rating})</p>
                       </div>
                       <div className="flex items-center">
                         <p className="text-lg font-semibold mr-2">Price:</p>
-                        <p className="text-lg font-semibold text-green-600">Rs {item.price}</p>
+                        <p className="text-lg font-semibold text-[#84019F]">$ {item.price}</p>
                       </div>
                       <div className="hidden sm:flex items-center">
                         <p className="text-lg font-semibold mr-2">Quantity:</p>
@@ -99,7 +99,7 @@ const Cart = () => {
           <h2 className="text-xl font-semibold">Rs {totalPriceWithShipping}</h2>
         </div>
         <div className='w-full mt-6'>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+          <button className="bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
             Proceed to Checkout
           </button>
         </div>

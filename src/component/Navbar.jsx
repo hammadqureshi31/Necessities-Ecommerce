@@ -16,6 +16,8 @@ import { GiLargeDress } from "react-icons/gi";
 import { TbSettingsBolt } from "react-icons/tb";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { GiConverseShoe } from "react-icons/gi";
+import { RiAncientPavilionLine } from "react-icons/ri";
+
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -46,6 +48,7 @@ const Navbar = () => {
         { title: "Products", href: "/allproducts" },
         { title: "FAQs", href: "/faqs" },
         { title: "Contact", href: "/contact" },
+        { title: "About", href: "/about" },
     ];
 
     const menuVars = {
@@ -89,7 +92,7 @@ const Navbar = () => {
         initial: {
             y: "30vh",
             transition: {
-                duration: 0.5,
+                duration: 1,
                 ease: [0.37, 0, 0.63, 1],
             },
         },
@@ -106,7 +109,7 @@ const Navbar = () => {
         return (
             <motion.div
                 variants={mobileLinkVars}
-                className="text-xl uppercase font-normal font-aleg  flex text-center"
+                className="text-xl  font-normal font-marg  flex text-center"
             >
                 <NavLink to={`${href}`} onClick={() => setOpen(false)} className=' navActive flex text-center justify-center pt-3'>{title}</NavLink>
             </motion.div>
@@ -118,14 +121,19 @@ const Navbar = () => {
         hidden: {
             opacity: 0,
             scale: 0,
-            x: 500
+            x:-500,
+            transition: {
+                duration: 1,
+                ease: [0.37, 0, 0.63, 1]
+            }
         },
         show: {
             opacity: 1,
             scale: 1,
             x: 0,
             transition: {
-                duration: 3.5,
+                duration: 4.5,
+                ease: [0, 0.55, 0.45, 1]
             },
         },
     };
@@ -135,7 +143,7 @@ const Navbar = () => {
         hidden: {},
         visible: {
             transition: {
-                delayChildren: 2.5,
+                delayChildren: 2,
                 staggerChildren: 0.2
             }
         }
@@ -178,22 +186,22 @@ const Navbar = () => {
                 <div className='flex justify-between text-center relative gap-1 cursor-pointer' onClick={() => navigate('/cart')}>
                     <div className='mt-1 text-3xl sm:mt-3 md:pt-1 md:text-3xl'><GiShoppingCart /></div>
                     <NavLink className='hidden md:block mt-2.5 text-2xl font-aleg md:mr-10'>Cart</NavLink>
-                    {item.length > 0 ?
+                    {
                         <div className='absolute top-0 left-3 p-0.5 bg-red-500 rounded-full px-2 text-white'>
                             <h6 className='text-xs'>{item.length}</h6>
-                        </div> : null
+                        </div>
                     }
                 </div>
                 <div className='md:pr-3'>
-                    <div onClick={() => setProfile(!profile)} className='flex text-center justify-center mt-1 px-2.5 py-1 md:text-lg uppercase bg-[#7F57F1] text-white rounded-full md:mt-1 md:p-3'>
+                    <div onClick={() => setProfile(!profile)} className='flex text-center justify-center mt-1 px-2.5 py-1 md:text-lg uppercase bg-[#84019F] text-white rounded-full md:mt-1 md:p-3'>
                         {userImage}
                     </div>
                     {profile && (
                         <div className="absolute z-50 right-2 mt-3 w-64 flex justify-between text-center overflow-hidden cursor-pointer rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                             <div className="w-full" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <div className="px-4 py-10 w-full text-sm text-gray-700 bg-sky-200 uppercase">{name}</div>
+                                <div className="px-4 py-10 w-full text-sm text-gray-700 bg-sky-300 uppercase">{name}</div>
                                 <div className=' mx-auto absolute left-24 top-16'>
-                                    <div className='flex text-center justify-center w-16 h-16 p-3 text-2xl uppercase bg-[#7F57F1] text-white rounded-full ring-2 ring-white'>{userImage}</div>
+                                    <div className='flex text-center justify-center w-16 h-16 p-3 text-2xl uppercase bg-[#84019F] text-white rounded-full ring-2 ring-white'>{userImage}</div>
                                 </div>
                                 <div className='mx-auto pt-10 mb-3 text-sm'>{firebase.userDetails.email}</div>
                                 <div className='flex text-center justify-center gap-2 mb-4'>
@@ -212,13 +220,15 @@ const Navbar = () => {
             </div>
         ) : (
             <div className="flex justify-between md:gap-5 md:pr-8">
-                <button className=" ring-1 text-sm p-1 px-1.5 rounded-lg md:hidden" onClick={() => navigate('/signup')}>
+                <button className=" bg-[#84019F] text-white font-semibold hover:bg-sky-500 p-1 px-1.5 rounded-lg md:hidden" onClick={() => navigate('/signup')}>
                     Sign up
                 </button>
-                <button className="hidden ring-1 ring-black  md:block md:text-lg  md:px-3 md:rounded-lg" onClick={() => navigate('/signup')}>
+                <button className="hidden bg-[#84019F] text-white font-semibold md:block md:text-lg  md:px-3 md:rounded-lg hover:bg-sky-500"
+                 onClick={() => navigate('/signup')}>
                     Sign up
                 </button>
-                <button className="hidden ring-1 ring-black text-lg px-3 rounded-lg md:block" onClick={() => navigate('/login')}>
+                <button className="hidden bg-[#84019F] text-white font-semibold text-lg px-3 rounded-lg md:block hover:bg-sky-500"
+                 onClick={() => navigate('/login')}>
                     Log in
                 </button>
             </div>
@@ -228,19 +238,21 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={`sticky top-0 z-40 flex justify-between text-center shadow-sm bg-white p-2 py-3 sm:px-6 md:gap-10 md:py-2 md:px-10`}>
+            <div className={`sticky top-0 z-40 flex justify-between text-center w-[${width}px]
+             shadow-sm bg-white p-2 py-3 sm:px-6 sm:w-[${width}px] md:gap-10 md:py-2 md:px-10 md:w-[${width}px]`}>
                 {/* First child div */}
                 <div
                     onClick={toggleMenu}
-                    className="mt-1.5 text-2xl md:hidden"
+                    className="text-2xl flex gap-2  md:hidden"
                 >
-                    <RiMenuUnfoldLine />
+                    <RiMenuUnfoldLine className='mt-1.5'/>
+                    <h1 className="font-right text-[#84019F] text-3xl  md:ml-0">Necessities</h1>
                 </div>
                 <div className="flex gap-2 text-center bg-white text-2xl md:text-xl md:gap-20 md:ml-10">
                     <div className="flex items-center text-[#84019F] text-3xl md:text-4xl md:mt-1.5 justify-between w-full md:w-auto">
-                        <div className="flex items-center">
-                            <div className='hidden sm:block'><FaOpencart /></div>
-                            <h1 className="ml-6 font-dance font-extrabold md:ml-0">Necessities</h1>
+                        <div className="hidden sm:flex items-center">
+                           <div><RiAncientPavilionLine /></div>
+                            <h1 className="font-right md:ml-0">Necessities</h1>
                         </div>
                         <AnimatePresence>
                             {open && (
@@ -249,11 +261,11 @@ const Navbar = () => {
                                     initial="initial"
                                     animate="animate"
                                     exit="exit"
-                                    className="fixed z-10 left-0 top-0 w-full h-screen p-10 origin-top bg-[#7F57F1] text-white  md:hidden"
+                                    className="fixed z-10 left-0 top-0 w-full h-screen p-10 origin-top bg-[#84019F] text-white  md:hidden"
                                 >
                                     <div className="flex h-full flex-col">
                                         <div className="flex justify-between">
-                                            <h1 className="text-5xl font-extrabold"><FaOpencart /></h1>
+                                        <div><RiAncientPavilionLine  className='mt-3'/></div>
                                             <p
                                                 className="cursor-pointer text-sm pt-4 font-roboto "
                                                 onClick={toggleMenu}
@@ -284,47 +296,47 @@ const Navbar = () => {
                             )}
                         </AnimatePresence>
 
-                    
+
                     </div>
                 </div>
 
                 <AnimatePresence>
-                        <motion.div
-                            initial="initial"
-                            animate="open"
-                            variants={mobileLinkVars}
-                            className="hidden md:flex md:gap-5 md:text-center md:font-semibold overflow-hidden"
-                        >
-                            {navLinks.map((link, index) => (
-                                <MobileNavLink key={index} title={link.title} href={link.href} />
-                            ))}
-                        </motion.div>
-                    </AnimatePresence>
+                    <motion.div
+                        initial="initial"
+                        animate="open"
+                        variants={mobileLinkVars}
+                        className="hidden md:flex md:gap-5 md:text-center md:font-semibold overflow-hidden"
+                    >
+                        {navLinks.map((link, index) => (
+                            <MobileNavLink key={index} title={link.title} href={link.href} />
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
 
-                    {hasLogin()}
+                {hasLogin()}
             </div>
 
-            
+
 
             {/* Second child div */}
-            <div className='hidden md:flex justify-between gap-96 py-2 shadow-md'>
+            <div className={`hidden md:flex justify-between overflow-hidden gap-96 py-2 shadow-md md:w-[${width}px]`}>
                 <AnimatePresence>
                     <motion.div initial='hidden' variants={containerVariants} animate="visible"
                         className='flex gap-4 text-lg font-normal pt-2  pl-12'
-                         onClick={()=>navigate('/allproducts')}>
+                        onClick={() => navigate('/allproducts')}>
                         <motion.h4 variants={itemVariants}>Popular Search : </motion.h4>
                         <motion.h3 className=' cursor-pointer hover:underline'
-                         variants={itemVariants}>Men </motion.h3>
+                            variants={itemVariants}>Men </motion.h3>
                         <motion.h3 className=' cursor-pointer hover:underline'
-                         variants={itemVariants}>Women</motion.h3>
+                            variants={itemVariants}>Women</motion.h3>
                         <motion.h3 className=' cursor-pointer hover:underline'
-                         variants={itemVariants}>Shoes</motion.h3>
+                            variants={itemVariants}>Shoes</motion.h3>
                         <motion.h3 className=' cursor-pointer hover:underline'
-                        variants={itemVariants}>Jewelery</motion.h3>
+                            variants={itemVariants}>Jewelery</motion.h3>
                         <motion.h3 className=' cursor-pointer hover:underline'
-                         variants={itemVariants}>Electronics</motion.h3>
+                            variants={itemVariants}>Electronics</motion.h3>
                         <motion.h3 className=' cursor-pointer hover:underline'
-                         variants={itemVariants}>Accessories</motion.h3>
+                            variants={itemVariants}>Accessories</motion.h3>
                     </motion.div>
                 </AnimatePresence>
 
@@ -340,7 +352,7 @@ const Navbar = () => {
             </div>
 
 
-            <div>
+            <div className='bg-pink-50'>
                 <marquee className="md:hidden overflow-auto" behavior="scroll" direction="left">
                     <div className='inline-flex gap-3 pt-0.5'>
                         <div className='p-2 text-center flex justify-center gap-2'>
