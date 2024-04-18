@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, lazy, useEffect, useState } from 'react'
 import useWindowResize from '../custom hooks/WindowResize'
 import { PiTShirt } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
@@ -16,6 +16,7 @@ import MissionAndGoals from './MissionAndGoals';
 import Branding from './Branding';
 import PopularProducts from './PopularProducts';
 import Recommendation from './Recommendation';
+// const Image1 = React.lazy(()=> import("public/images/Image1.svg"))
 
 
 const Landing = () => {
@@ -105,9 +106,12 @@ const Landing = () => {
                 <motion.div variants={item} className='bg-[#84019F] text-[#84019F] ring-4 ring-[#E3E059] h-2.5 w-2.5 rounded-full'></motion.div>
               </motion.div>
             </div>
-            <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-              <img src="./images/Image1.svg" alt="" className={`w-[${width}px] sm:w-[${width}px]`} />
-            </motion.div>
+            <Suspense fallback={<div>loading...</div>}>
+              <motion.div initial='hidden' animate="show" variants={imageAnimation}>
+                <img src={'./images/Image1.svg'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} />
+                {/* <Image1 className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} /> */}
+              </motion.div>
+            </Suspense>
           </div>
 
           {/* Main Content */}
@@ -186,19 +190,19 @@ const Landing = () => {
           Our Latest Collections
         </div>
 
-        <div className='mx-auto md:pl-14'>
+        <div className='mx-auto md:pl-8 md:pr-8'>
           <PopularProducts />
         </div>
 
         <div className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px] mx-auto md:mt-10`}>
-          <img src="./images/Banner.svg" alt="" className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px]`}/>
+          <img src="./images/Banner.svg" alt="" className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px]`} />
         </div>
 
         <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20'>
           Our Recommendation For You
         </div>
 
-        <div className='mx-auto md:pl-14'>
+        <div className='mx-auto md:pl-8 md:pr-8'>
           <Recommendation />
         </div>
 

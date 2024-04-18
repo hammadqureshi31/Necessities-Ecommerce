@@ -32,7 +32,7 @@ const Footer = () => {
                 <div className='mt-8 flex flex-col md:flex-row md:justify-between md:mt-14 md:pl-10'>
                     <div className=''>
                         <div className='flex gap-2 mt-5  text-center text-3xl text-white md:text-5xl md:gap-3 md:ml-12'>
-                            <div><RiAncientPavilionLine /></div>
+                            <div className='text-4xl mt-2'><RiAncientPavilionLine /></div>
                             <h1 className='font-right text-4xl mt-1.5'> Necessities </h1>
                         </div>
                         <div className='text-md text-white flex flex-col gap-4 text-left mt-10 '>

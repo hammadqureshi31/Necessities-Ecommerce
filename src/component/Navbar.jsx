@@ -48,7 +48,7 @@ const Navbar = () => {
         { title: "Products", href: "/allproducts" },
         { title: "FAQs", href: "/faqs" },
         { title: "Contact", href: "/contact" },
-        { title: "About", href: "/about" },
+        { title: "About", href: "/faqs" },
     ];
 
     const menuVars = {

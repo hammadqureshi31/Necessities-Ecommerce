@@ -3,11 +3,11 @@
 }
 
 
-
 .navActive.active {
   font-weight:400;
   font-size: larger;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  text-decoration-line: underline;
 }
 
 .offer-card {
