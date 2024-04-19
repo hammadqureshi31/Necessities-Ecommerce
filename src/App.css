@@ -6,7 +6,6 @@
 .navActive.active {
   font-weight:500;
   font-size: x-large;
-  /* text-decoration: underline; */
   text-decoration-line: underline;
 }
 

@@ -111,7 +111,7 @@ const Navbar = () => {
                 variants={mobileLinkVars}
                 className="text-lg font-normal font-marg  flex text-center"
             >
-                <NavLink to={`${href}`} onClick={() => setOpen(false)} className=' navActive flex text-center justify-center pt-3'>{title}</NavLink>
+                <NavLink to={`${href}`} onClick={() => setOpen(false)} className=' navActive flex text-center justify-center pt-2.5'>{title}</NavLink>
             </motion.div>
         );
     };
@@ -246,10 +246,10 @@ const Navbar = () => {
                     className="text-2xl flex gap-2  md:hidden"
                 >
                     <RiMenuUnfoldLine className='mt-1.5'/>
-                    <h1 className="font-right text-[#84019F] text-3xl  md:ml-0">Necessities</h1>
+                    <h1 className="font-right text-[#84019F] text-3xl md:ml-0">Necessities</h1>
                 </div>
                 <div className="flex gap-2 text-center bg-white text-2xl md:text-xl md:gap-20 md:ml-10">
-                    <div className="flex items-center text-[#84019F] text-3xl md:text-4xl md:mt-1.5 justify-between w-full md:w-auto">
+                    <div className="flex items-center text-[#84019F] text-3xl md:mt-1.5 justify-between w-full md:w-auto">
                         <div className="hidden sm:flex items-center">
                            <div><RiAncientPavilionLine /></div>
                             <h1 className="font-right md:ml-0">Necessities</h1>
@@ -282,7 +282,7 @@ const Navbar = () => {
                                         >
                                             {navLinks.map((link, index) => {
                                                 return (
-                                                    <div className="overflow-hidden " key={index}>
+                                                    <div className="overflow-hidden" key={index}>
                                                         <MobileNavLink
                                                             title={link.title}
                                                             href={link.href}
@@ -347,7 +347,7 @@ const Navbar = () => {
                     variants={fadeInUpAnimation}
                     className='mx-auto flex gap-2 px-3'
                 >
-                    <input type="text" placeholder='Search' className='px-4 ring-1 rounded-full  md:w-72 md:ml-1 text-sm  max-h-10' />
+                    <input type="text" placeholder='Search' className='px-4 ring-1 rounded-full  md:w-60 md:ml-20 text-sm  max-h-10' />
                     <div className='text-[#84019F] text-3xl font-extrabold'><CiSearch /></div>
                 </motion.div>
             </div>
