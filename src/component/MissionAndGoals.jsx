@@ -48,7 +48,7 @@ const MissionAndGoals = () => {
 
     return (
         <div ref={containerRef} className="flex flex-col md:flex-row-reverse items-center  px-3 py-12 bg-sky-100 mt-24 overflow-hidden">
-            <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-full md:max-w-2xl md:ml-14">
+            <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-full md:max-w-2xl md:ml-40">
                 <h2 className="text-2xl md:text-3xl font-bold font-marg mb-12 text-left md:text-center text-[#84019f]">Our Mission & Goals</h2>
                 <motion.h3 variants={itemVariants} className="text-md text-gray-700 leading-relaxed mb-8 text-center md:text-left font-roboto">Empower small businesses to thrive in the digital economy.</motion.h3>
                 <motion.h3 variants={itemVariants} className="text-md text-gray-700 leading-relaxed mb-8 text-center md:text-left font-roboto">Provide innovative solutions that simplify everyday tasks.</motion.h3>
