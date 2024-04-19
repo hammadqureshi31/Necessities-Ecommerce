@@ -347,8 +347,8 @@ const Navbar = () => {
                     variants={fadeInUpAnimation}
                     className='mx-auto flex gap-2 px-3'
                 >
-                    <input type="text" placeholder='Search' className='px-4 ring-1 rounded-full  md:w-72 md:ml-1 text-sm' />
-                    <div className='p-1 bg-[#84019F] text-white  text-3xl rounded-full font-extrabold'><CiSearch /></div>
+                    <input type="text" placeholder='Search' className='px-4 ring-1 rounded-full  md:w-72 md:ml-1 text-sm  max-h-10' />
+                    <div className='text-[#84019F] text-3xl font-extrabold'><CiSearch /></div>
                 </motion.div>
             </div>
 

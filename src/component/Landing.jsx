@@ -90,7 +90,7 @@ const Landing = () => {
         <div className='relative flex flex-col gap-5 md:mt-10 overflow-hidden'>
 
           <div className='flex justify-evenly' >
-            <div className='hidden md:flex flex-col md:ml-16'>
+            <div className='hidden md:flex flex-col md:ml-14'>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
                 <img src="./images/Image.svg" alt="" className={`hidden md:inline-block`} />
               </motion.div>
@@ -106,7 +106,7 @@ const Landing = () => {
             </div>
             <Suspense fallback={<div>loading...</div>}>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-                <img src={'./images/Image1.svg'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} />
+                <img src={'./images/Image1.svg'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pl-8 md:pr-10`} />
                 {/* <Image1 className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} /> */}
               </motion.div>
             </Suspense>
