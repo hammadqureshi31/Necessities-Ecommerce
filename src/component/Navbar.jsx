@@ -324,18 +324,19 @@ const Navbar = () => {
                     <motion.div initial='hidden' variants={containerVariants} animate="visible"
                         className='flex gap-4 text-lg font-normal pt-2  pl-12'
                         onClick={() => navigate('/allproducts')}>
-                        <motion.h4 variants={itemVariants}>Popular Search : </motion.h4>
-                        <motion.h3 className=' cursor-pointer hover:underline'
+                        <motion.h4 variants={itemVariants}
+                        className='text-sm'>Popular Search : </motion.h4>
+                        <motion.h3 className=' cursor-pointer text-sm hover:underline'
                             variants={itemVariants}>Men </motion.h3>
-                        <motion.h3 className=' cursor-pointer hover:underline'
+                        <motion.h3 className=' cursor-pointer text-sm hover:underline'
                             variants={itemVariants}>Women</motion.h3>
-                        <motion.h3 className=' cursor-pointer hover:underline'
+                        <motion.h3 className=' cursor-pointer text-sm hover:underline'
                             variants={itemVariants}>Shoes</motion.h3>
-                        <motion.h3 className=' cursor-pointer hover:underline'
+                        <motion.h3 className=' cursor-pointer text-sm hover:underline'
                             variants={itemVariants}>Jewelery</motion.h3>
-                        <motion.h3 className=' cursor-pointer hover:underline'
+                        <motion.h3 className=' cursor-pointer text-sm hover:underline'
                             variants={itemVariants}>Electronics</motion.h3>
-                        <motion.h3 className=' cursor-pointer hover:underline'
+                        <motion.h3 className=' cursor-pointer text-sm hover:underline'
                             variants={itemVariants}>Accessories</motion.h3>
                     </motion.div>
                 </AnimatePresence>
@@ -346,7 +347,7 @@ const Navbar = () => {
                     variants={fadeInUpAnimation}
                     className='mx-auto flex gap-2 px-3'
                 >
-                    <input type="text" placeholder='Search' className='px-6 py-2 ring-1 rounded-full  md:w-72 md:ml-1' />
+                    <input type="text" placeholder='Search' className='px-4 ring-1 rounded-full  md:w-72 md:ml-1 text-sm' />
                     <div className='p-1 bg-[#84019F] text-white  text-3xl rounded-full font-extrabold'><CiSearch /></div>
                 </motion.div>
             </div>
