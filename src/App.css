@@ -4,10 +4,12 @@
 
 
 .navActive.active {
-  font-weight:500;
-  font-size: x-large;
+  font-weight:700;
+  font-size: medium;
   text-decoration-line: underline;
+  letter-spacing: 1px;
 }
+
 
 .offer-card {
   border: 2px solid #e2e8f0;

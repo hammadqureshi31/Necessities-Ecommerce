@@ -115,7 +115,7 @@ const Landing = () => {
           {/* Main Content */}
           <div className='flex justify-between'>
             <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-              <img src="./images/Image2.svg" alt="" className='hidden md:inline-block ml-14 max-w-76' />
+              <img src="./images/Image2.svg" alt="" className='hidden md:inline-block ml-14 max-w-72' />
             </motion.div>
 
             <div className='flex flex-col gap-10 object-cover mx-auto max-w-4xl md:m-0'>
