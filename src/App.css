@@ -5,7 +5,7 @@
 
 .navActive.active {
   font-weight:700;
-  font-size: medium;
+  font-size: large;
   text-decoration-line: underline;
   letter-spacing: 1px;
 }
