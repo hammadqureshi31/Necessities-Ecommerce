@@ -90,7 +90,7 @@ const Landing = () => {
         <div className='relative flex flex-col gap-5 md:mt-10 overflow-hidden'>
 
           <div className='flex justify-evenly' >
-            <div className='hidden md:flex flex-col md:px-5'>
+            <div className='hidden md:flex flex-col md:ml-20'>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
                 <img src="./images/Image.svg" alt="" className={`hidden md:inline-block`} />
               </motion.div>
