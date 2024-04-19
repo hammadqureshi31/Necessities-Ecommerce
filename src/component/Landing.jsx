@@ -49,12 +49,10 @@ const Landing = () => {
     hidden: {
       opacity: 0,
       scale: 0.5,
-      x: -200,
     },
     show: {
       opacity: 1,
       scale: 1,
-      x: 0,
       transition: {
         duration: 1.5,
         ease: "easeIn",
@@ -93,7 +91,9 @@ const Landing = () => {
 
           <div className='flex justify-evenly' >
             <div className='hidden md:flex flex-col md:px-5'>
+              <motion.div initial='hidden' animate="show" variants={imageAnimation}>
                 <img src="./images/Image.svg" alt="" className={`hidden md:inline-block`} />
+              </motion.div>
 
               <motion.div initial='hidden' variants={container} animate='visible'
                 className='flex justify-center gap-3 text-center mt-2.5'>
@@ -104,7 +104,12 @@ const Landing = () => {
                 <motion.div variants={item} className='bg-[#84019F] text-[#84019F] ring-4 ring-[#E3E059] h-2.5 w-2.5 rounded-full'></motion.div>
               </motion.div>
             </div>
+            <Suspense fallback={<div>loading...</div>}>
+              <motion.div initial='hidden' animate="show" variants={imageAnimation}>
                 <img src={'./images/Image1.svg'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} />
+                {/* <Image1 className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} /> */}
+              </motion.div>
+            </Suspense>
           </div>
 
           {/* Main Content */}
