@@ -117,7 +117,7 @@ const Footer = () => {
 
                     <div className='flex gap-2 items-center justify-center'>
                     <h4 className='text-xs pt-0.5  md:text-lg md:pt-0'>Developed by </h4>
-                    <span className=' text-lime-300 text-xs font-marg md:text-xl md:font-bold'>Muhammad Hammad Qureshi</span>
+                    <span className=' text-lime-300 text-xs font-aleg md:text-xl md:font-semibold md:tracking-wider'>Muhammad Hammad Qureshi.</span>
                     </div>
 
                 </div>

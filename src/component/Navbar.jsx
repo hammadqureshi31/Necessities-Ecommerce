@@ -109,7 +109,7 @@ const Navbar = () => {
         return (
             <motion.div
                 variants={mobileLinkVars}
-                className="text-xl  font-normal font-marg  flex text-center"
+                className="text-lg font-normal font-marg  flex text-center"
             >
                 <NavLink to={`${href}`} onClick={() => setOpen(false)} className=' navActive flex text-center justify-center pt-3'>{title}</NavLink>
             </motion.div>
