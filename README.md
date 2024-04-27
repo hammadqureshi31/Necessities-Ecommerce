@@ -9,4 +9,4 @@ Currently, two official plugins are available:
 
 - Live preview:
 
-https://hammadqureshi31.github.io/Necessities-Ecommerce/
+https://necessities-ecommerce.netlify.app/
