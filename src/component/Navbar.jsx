@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import { RiKeyLine } from "react-icons/ri";
 import { MdCreditScore } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
-import { FaOpencart } from "react-icons/fa";
 import useWindowResize from '../custom hooks/WindowResize';
 import { PiTShirt } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";

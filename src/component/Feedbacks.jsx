@@ -52,7 +52,7 @@ const Feedbacks = () => {
                      
                     <div className="">
                         {/* Offer Card 1 */}
-                        <div className="offer-card inline-block flex-1 max-w-sm rounded-lg overflow-hidden shadow-lg border border-transparent hover:border-purple-500 transition duration-300 bg-gradient-to-b from-sky-300 to-sky-500">
+                        <div className="offer-card inline-block flex-1 max-w-sm rounded-lg overflow-hidden shadow-lg border border-transparent hover:border-purple-500 transition duration-300 bg-gradient-to-b from-sky-300 to-sky-500 2xl:mr-12">
                             <div className="p-6 text-white">
                                 <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-4 font-marg tracking-wide">50% Off Spring Sale</h3>
                                 <p className="text-sm md:text-base lg:text-lg xl:text-xl mb-4">Limited time offer! Enjoy 50% off on selected spring collection items. Hurry, shop now!</p>
@@ -61,7 +61,7 @@ const Feedbacks = () => {
                             </div>
                         </div>
                         {/* Offer Card 2 */}
-                        <div className="offer-card inline-block flex-1 max-w-sm rounded-lg overflow-hidden shadow-lg border border-transparent hover:border-blue-500 transition duration-300 bg-gradient-to-b from-purple-300 to-purple-600">
+                        <div className="offer-card inline-block flex-1 max-w-sm rounded-lg overflow-hidden shadow-lg border border-transparent hover:border-blue-500 transition duration-300 bg-gradient-to-b from-purple-300 to-purple-600 2xl:mr-12">
                             <div className="p-6 text-white">
                                 <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-4 font-marg tracking-wide">Flash Sale - Today Only!</h3>
                                 <p className="text-sm md:text-base lg:text-lg xl:text-xl mb-4">Get an extra 20% off on all orders today! Use code FLASH20 at checkout. Don't miss out!</p>
@@ -94,7 +94,7 @@ const Feedbacks = () => {
                 </div>
 
                 <div className="flex flex-col items-center justify-center">
-                    <div className=" w-64 h-80 sm:w-full md:w-96 bg-white rounded-lg shadow-lg shadow-[#84019F] overflow-hidden">
+                    <div className=" w-64 h-80 sm:w-full md:w-96 bg-white rounded-lg shadow-lg shadow-[#84019F] overflow-hidden 2xl:h-96 2xl:w-96">
                         <div className="px-8 py-6">
                             <h2 className="text-2xl font-bold text-gray-800 md:text-3xl font-roboto">{testimonials[currentTestimonialIndex].name}</h2>
                             <p className="text-gray-500 mt-4 md:text-xl font-aleg ">{testimonials[currentTestimonialIndex].feedback}</p>

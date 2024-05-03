@@ -1,14 +1,11 @@
 import React from 'react'
 import useWindowResize from '../custom hooks/WindowResize'
-import { GiShoppingCart } from "react-icons/gi";
 import { FaGooglePlay } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-import { SiMinutemailer } from "react-icons/si";
 import { PiBellRingingThin } from "react-icons/pi";
-import { FaOpencart } from "react-icons/fa";
 import { RiAncientPavilionLine } from "react-icons/ri";
 
 

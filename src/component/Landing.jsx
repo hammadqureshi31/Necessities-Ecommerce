@@ -6,17 +6,13 @@ import { GiLargeDress } from "react-icons/gi";
 import { TbSettingsBolt } from "react-icons/tb";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { GiConverseShoe } from "react-icons/gi";
-import { easeInOut, motion } from 'framer-motion'
-import Testinomials from './Testinomials';
-import Feedbacks from './Feedbacks';
+import { motion } from 'framer-motion'
 import CategoryCard from './CategoryCard'
 import { useNavigate } from 'react-router-dom';
 import Visitors from './Visitors';
-import MissionAndGoals from './MissionAndGoals';
 import Branding from './Branding';
 import PopularProducts from './PopularProducts';
 import Recommendation from './Recommendation';
-// const Image1 = React.lazy(()=> import("public/images/Image1.svg"))
 
 
 const Landing = () => {
@@ -90,7 +86,7 @@ const Landing = () => {
         <div className='relative flex flex-col gap-5 md:mt-10 overflow-hidden'>
 
           <div className='flex justify-evenly' >
-            <div className='hidden md:flex flex-col md:ml-14'>
+            <div className='hidden md:flex flex-col md:ml-14 2xl:ml-0'>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
                 <img src="./images/Image.svg" alt="" className={`hidden md:inline-block`} />
               </motion.div>
@@ -107,7 +103,6 @@ const Landing = () => {
             <Suspense fallback={<div>loading...</div>}>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
                 <img src={'./images/Image1.svg'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pl-8 md:pr-10`} />
-                {/* <Image1 className={`w-[${width}px] sm:w-[${width}px] md:pr-10`} /> */}
               </motion.div>
             </Suspense>
           </div>
@@ -115,7 +110,7 @@ const Landing = () => {
           {/* Main Content */}
           <div className='flex justify-between'>
             <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-              <img src="./images/Image2.svg" alt="" className='hidden md:inline-block ml-14 max-w-72' />
+              <img src="./images/Image2.svg" alt="" className='hidden md:inline-block ml-14 max-w-72 2xl:ml-28' />
             </motion.div>
 
             <div className='flex flex-col gap-10 object-cover mx-auto max-w-4xl md:m-0'>
@@ -184,11 +179,11 @@ const Landing = () => {
 
         </div>
 
-        <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20'>
+        <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20 2xl:px-32'>
           Our Latest Collections
         </div>
 
-        <div className='mx-auto md:pl-8 md:pr-8'>
+        <div className='mx-auto md:pl-8 md:pr-8 2xl:px-32'>
           <PopularProducts />
         </div>
 
@@ -196,11 +191,11 @@ const Landing = () => {
           <img src="./images/Banner.svg" alt="" className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px]`} />
         </div>
 
-        <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20'>
+        <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20 2xl:px-32'>
           Our Recommendation For You
         </div>
 
-        <div className='mx-auto md:pl-8 md:pr-8'>
+        <div className='mx-auto md:pl-8 md:pr-8 2xl:px-32'>
           <Recommendation />
         </div>
 
@@ -213,7 +208,7 @@ const Landing = () => {
         </div>
 
         <div className='text-center mt-6 text-[#84019F] font-roboto '>
-          <p className=' px-3 sm:text-lg sm:px-10 md:w-[1100px] md:mx-auto'>
+          <p className=' px-3 sm:text-lg sm:px-10 md:w-[1100px] md:mx-auto 2xl:text-xl'>
             Explore our captivating gallery filled with stunning images capturing memorable moments and breathtaking scenes. Immerse yourself in a visual journey that will inspire and delight your senses.
           </p>
         </div>

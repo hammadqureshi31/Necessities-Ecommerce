@@ -5,6 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from "react-icons/fc";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -79,7 +81,9 @@ const Login = () => {
                 {isLoading ? <div className="dotspinner mx-auto" /> : 'Log in'}
               </button>
 
-              <div className="mt-4 text-center">
+              <div className="mt-4 flex text-center justify-center gap-3"
+              onClick={()=>firebase.signinWithGoogle()}>
+                <span className='text-3xl'><FcGoogle /></span>
                 <span className="text-[#84019F] text-lg cursor-pointer">Sign in with Google</span>
               </div>
             </Form>

@@ -6,7 +6,7 @@ const AutoImageSlider = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -21,7 +21,7 @@ const AutoImageSlider = ({ images }) => {
             alt={`Image ${index}`}
             className={index === currentIndex ? 'active' : ''}
             style={{
-              maxHeight: '300px', // Adjust max height as needed
+              maxHeight: '300px', 
               width: 'auto',
               margin: 'auto'
             }}

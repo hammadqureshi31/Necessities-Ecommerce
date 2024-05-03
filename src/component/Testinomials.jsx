@@ -53,7 +53,7 @@ const Testimonials = () => {
                 variants={containerVariants}
                 initial='hidden'
                 animate={controls}
-                className='mb-16 flex flex-wrap gap-4'
+                className='mb-16 flex flex-wrap gap-4 2xl:gap-20'
             >
                 <motion.div
                     variants={itemVariants}
