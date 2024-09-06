@@ -59,9 +59,9 @@ const MissionAndGoals = () => {
                 <motion.h3 variants={itemVariants} className="hidden md:inline-block text-md text-gray-700 leading-relaxed mb-8 text-center md:text-left font-roboto 2xl:text-lg">Provide innovative solutions that simplify everyday tasks.</motion.h3>
             </motion.div>
             <div className="max-w-full md:max-w-lg relative flex md:ml-32 2xl:ml-0 2xl:pr-44">
-                <img src='./images/menswear.jpeg' alt="Menswear" className="hidden  md:w-[400px] md:h-[510px] md:inline-block md:absolute rounded-lg shadow-lg z-10 top-6 left-0 -ml-52 2xl:-ml-72" />
-                <img src='./images/manshopping.jpg' alt="Menswear" className="w-full z-30 rounded-lg shadow-lg md:w-[350px] md:h-[560px] md:ml-auto relative" />
-                <img src='./images/markus.jpg' alt="Menswear" className="hidden md:w-[300px] md:h-[510px] md:inline-block md:absolute rounded-lg shadow-lg  z-10 top-6 right-0 -mr-52 2xl:-mr-28" />
+                <img src='/images/menswear.webp' alt="Menswear" className="hidden  md:w-[400px] md:h-[510px] md:inline-block md:absolute rounded-lg shadow-lg z-10 top-6 left-0 -ml-52 2xl:-ml-72" />
+                <img src='/images/manshopping.webp' alt="Menswear" className="w-full z-30 rounded-lg shadow-lg md:w-[350px] md:h-[560px] md:ml-auto relative" />
+                <img src='/images/markus.webp' alt="Menswear" className="hidden md:w-[300px] md:h-[510px] md:inline-block md:absolute rounded-lg shadow-lg  z-10 top-6 right-0 -mr-52 2xl:-mr-28" />
             </div>
         </div>
     );

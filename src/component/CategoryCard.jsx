@@ -10,17 +10,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/manpaying.jpg'
+              src='/images/manpaying.webp'
               alt="Second slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/menswear.jpeg'
+              src='/images/menswear.webp'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/manshopping.jpg'
+              src='/images/manshopping.webp'
               alt="Second slide"
             />
           </div>
@@ -29,17 +29,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="d-block w-96 object-cover h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/menswear.jpeg'
+              src='/images/menswear.webp'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/manshopping.jpg'
+              src='/images/manshopping.webp'
               alt="Second slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/markus.jpg'
+              src='/images/markus.webp'
               alt="Second slide"
             />
           </div>
@@ -48,17 +48,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="d-block w-96 object-cover h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/manshopping.jpg'
+              src='/images/manshopping.webp'
               alt="Second slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/markus.jpg'
+              src='/images/markus.webp'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/chris.jpg'
+              src='/images/chris.webp'
               alt="First slide"
             />
           </div>
@@ -67,17 +67,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/markus.jpg'
+              src='/images/markus.webp'
               alt="Second slide"
             />
             <img
               className="d-block w-96 object-cover h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/chris.jpg'
+              src='/images/chris.webp'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/leftbag.jpg'
+              src='/images/leftbag.webp'
               alt="First slide"
             />
           </div>
@@ -86,17 +86,17 @@ function CategoryCard() {
           <div className="carousel-item-wrapper">
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/chris.jpg'
+              src='/images/chris.webp'
               alt="Second slide"
             />
             <img
               className="d-block w-96 object-cover h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/leftbag.jpg'
+              src='/images/leftbag.webp'
               alt="First slide"
             />
             <img
               className="hidden w-96 object-cover md:block h-96 mr-2 2xl:mr-12 2xl:h-[450px] 2xl:w-[450px]"
-              src='./images/rightbag.jpg'
+              src='/images/rightbag.webp'
               alt="First slide"
             />
           </div>

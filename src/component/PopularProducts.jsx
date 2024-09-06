@@ -22,7 +22,7 @@ const PopularProducts = () => {
       <div className='flex flex-wrap gap-3'>
         {elements.length > 0 && (
           <Suspense fallback={<div>Loading Products...</div>}>
-            {elements.map((data, index) => (
+            {elements?.map((data, index) => (
               <Cards data={data} key={data.id} />
             ))}
           </Suspense>

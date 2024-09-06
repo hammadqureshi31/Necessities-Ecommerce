@@ -88,7 +88,7 @@ const Landing = () => {
           <div className='flex justify-evenly' >
             <div className='hidden md:flex flex-col md:ml-14 2xl:ml-0'>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-                <img src="./images/Image.svg" alt="" className={`hidden md:inline-block`} />
+                <img src="/images/Image.webp" alt="" className={`hidden md:inline-block`} />
               </motion.div>
 
               <motion.div initial='hidden' variants={container} animate='visible'
@@ -102,7 +102,7 @@ const Landing = () => {
             </div>
             <Suspense fallback={<div>loading...</div>}>
               <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-                <img src={'./images/Image1.svg'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pl-8 md:pr-10`} />
+                <img src={'/images/Image1.webp'} alt="" className={`w-[${width}px] sm:w-[${width}px] md:pl-8 md:pr-10`} />
               </motion.div>
             </Suspense>
           </div>
@@ -110,7 +110,7 @@ const Landing = () => {
           {/* Main Content */}
           <div className='flex justify-between'>
             <motion.div initial='hidden' animate="show" variants={imageAnimation}>
-              <img src="./images/Image2.svg" alt="" className='hidden md:inline-block ml-14 max-w-72 2xl:ml-28' />
+              <img src="/images/Image2.webp" alt="" className='hidden md:inline-block ml-14 max-w-72 2xl:ml-28' />
             </motion.div>
 
             <div className='flex flex-col gap-10 object-cover mx-auto max-w-4xl md:m-0'>
@@ -188,7 +188,7 @@ const Landing = () => {
         </div>
 
         <div className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px] mx-auto md:mt-10`}>
-          <img src="./images/Banner.svg" alt="" className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px]`} />
+          <img src="/images/Banner.webp" alt="" className={`w-[${width}px] sm:w-[${width}px] md:w[${width}px]`} />
         </div>
 
         <div className='mt-10 mb-16 px-2 text-left font-bold font-marg text-2xl md:ml-14 md:mt-20 2xl:px-32'>

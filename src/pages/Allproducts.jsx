@@ -2,8 +2,8 @@ import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { PiTShirt } from "react-icons/pi";
 import { GiLargeDress } from "react-icons/gi";
 import { TbSettingsBolt } from "react-icons/tb";
-import { GiBigDiamondRing } from "react-icons/gi";
-import { GiConverseShoe } from "react-icons/gi";
+import { LuArmchair } from "react-icons/lu";
+import { TiShoppingCart } from "react-icons/ti";
 import { usefetch } from '../custom hooks/Fetching';
 // import { useWindowResize } from '../custom hooks/WindowResize'
 import FilterDropDown from '../component/FiterDropDown';
@@ -29,7 +29,7 @@ const Allproducts = () => {
     }, []);
 
     const handleFilter = (category) => {
-        const filtered = allProduct.filter((value) => value.category === category);
+        const filtered = allProduct.filter((value) => value.category == category);
         setHasFilter(filtered);
     };
 
@@ -39,25 +39,25 @@ const Allproducts = () => {
                 <div className='md:flex gap-20'>
                     <div className='hidden md:flex md:flex-col md:flex-wrap md:gap-8 md:pt-20 cursor-pointer'>
                         <h1 className='text-[#84019F] text-4xl font-roboto font-normal'>Categories</h1>
-                        <div onClick={() => handleFilter("men's clothing")} className='bg-[#FAF5FF] p-3 text-center flex justify-center gap-2'>
+                        <div onClick={() => handleFilter("fragrances")} className='bg-[#FAF5FF] p-3 text-center flex justify-center gap-2'>
                             <div className='text-3xl text-sky-500'><PiTShirt /></div>
                             <h1 className='text-2xl font-aleg font-semibold text-sky-500'>Men's</h1>
                         </div>
-                        <div onClick={() => handleFilter("women's clothing")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
+                        <div onClick={() => handleFilter("beauty")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
                             <div className='text-3xl text-[#FFC216]'><GiLargeDress /></div>
                             <h1 className='text-2xl font-aleg font-semibold text-[#FFC216]'>Women's</h1>
                         </div>
-                        <div onClick={() => handleFilter("electronics")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
+                        <div onClick={() => handleFilter("Electronics")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
                             <div className='text-3xl  text-black'><TbSettingsBolt /></div>
                             <h1 className='text-2xl font-aleg font-semibold text-black'>Electronics</h1>
                         </div>
-                        <div onClick={() => handleFilter("jewelery")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
-                            <div className='text-3xl '><GiBigDiamondRing /></div>
-                            <h1 className='text-2xl font-aleg font-semibold'>Jewellery</h1>
+                        <div onClick={() => handleFilter("furniture")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
+                            <div className='text-3xl '><LuArmchair /></div>
+                            <h1 className='text-2xl font-aleg font-semibold'>Furniture</h1>
                         </div>
-                        <div onClick={() => handleFilter("shoes")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
-                            <div className='text-3xl text-[#F14343]'><GiConverseShoe /></div>
-                            <h1 className='text-2xl font-aleg font-semibold text-[#F14343]'>Shoes</h1>
+                        <div onClick={() => handleFilter("groceries")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
+                            <div className='text-3xl text-[#F14343]'><TiShoppingCart /></div>
+                            <h1 className='text-2xl font-aleg font-semibold text-[#F14343]'>Groceries</h1>
                         </div>
                     </div>
                     <LatestCollections hasFilter={hasFilter} allProduct={allProduct} handleFilter={handleFilter} />

@@ -107,7 +107,7 @@ const Details = () => {
                                     initial="hidden"
                                     animate="show"
                                     variants={fadeInUpAnimation}
-                                    src={data.image} alt={data.title} className='w-80 rounded-lg shadow-lg mb-6' />
+                                    src={data.images} alt={data.title} className='w-80 rounded-lg shadow-lg mb-6' />
                                 <div className='flex justify-between md:justify-start space-x-12'>
                                     <button onClick={() => navigate(-1)} className='bg-red-500 p-3 text-white font-semibold rounded-lg hover:bg-red-400 ml-4 text-nowrap'>Go Back</button>
                                     <button onClick={handleCart} className={`bg-[#84019F] flex text-center px-3 py-2 gap-3 font-roboto font-medium rounded-lg text-white hover:bg-sky-500 relative`}>
@@ -134,8 +134,8 @@ const Details = () => {
                                 <div className='flex items-left flex-col mb-10 gap-3'>
                                     <div className='flex items-center'>
                                         <span className='text-2xl text-[#84019F] font-semibold font-dance'>Rating:</span>
-                                        <span className='text-lg ml-2 text-gray-700 font-roboto'>{data.rating.rate}</span>
-                                        <span className='text-lg ml-2 text-gray-600 font-aleg'>({data.rating.count} ratings)</span>
+                                        <span className='text-lg ml-2 text-gray-700 font-roboto'>{data.id}</span>
+                                        <span className='text-lg ml-2 text-gray-600 font-aleg'>({data.id} ratings)</span>
                                     </div>
                                     <hr className='border-gray-300 w-full' />
                                     <div className='flex items-center mt-2'>
