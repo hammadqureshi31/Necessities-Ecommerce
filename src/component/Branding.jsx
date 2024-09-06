@@ -46,7 +46,7 @@ const Branding = () => {
         </div>
 
         <img
-          src="./images/salesvg.jpg"
+          src="/images/salesvg.webp"
           alt="Sales Promotion"
           className={`block md:h-[500px] w-[800px] mx-auto`}
         />
