@@ -92,11 +92,6 @@ const Card = ({ data }) => {
                     <span className='text-[#84019F] text-2xl tracking-wide'>&nbsp;{data.id}</span></p>
             </div>
 
-            {/* Category name */}
-            <div>
-                <p className='font-semibold text-sm opacity-70'>Category: {data.category}</p>
-            </div>
-
             {/* Add to Cart Button */}
             <div className='flex justify-between items-center'>
                 <button onClick={handleCart}
