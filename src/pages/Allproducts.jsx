@@ -54,7 +54,7 @@ const Allproducts = () => {
                         <div onClick={() => handleFilter("jewelery")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
                             <div className='text-3xl '><GiDiamondRing />
                             </div>
-                            <h1 className='text-2xl font-aleg font-semibold'>Furniture</h1>
+                            <h1 className='text-2xl font-aleg font-semibold'>Jewelery</h1>
                         </div>
                         <div onClick={() => handleFilter("shoes")} className='bg-[#FAF5FF] p-3 text-center text-[#84019F] flex justify-center gap-2'>
                             <div className='text-3xl text-[#F14343]'><GiConverseShoe />
