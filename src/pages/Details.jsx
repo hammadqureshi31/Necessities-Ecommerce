@@ -107,7 +107,7 @@ const Details = () => {
                                     initial="hidden"
                                     animate="show"
                                     variants={fadeInUpAnimation}
-                                    src={data.images} alt={data.title} className='w-80 rounded-lg shadow-lg mb-6' />
+                                    src={data.image} alt={data.title} className='w-80 rounded-lg shadow-lg mb-6' />
                                 <div className='flex justify-between md:justify-start space-x-12'>
                                     <button onClick={() => navigate(-1)} className='bg-red-500 p-3 text-white font-semibold rounded-lg hover:bg-red-400 ml-4 text-nowrap'>Go Back</button>
                                     <button onClick={handleCart} className={`bg-[#84019F] flex text-center px-3 py-2 gap-3 font-roboto font-medium rounded-lg text-white hover:bg-sky-500 relative`}>
@@ -133,14 +133,14 @@ const Details = () => {
                                 <p className='text-lg opacity-55 mb-6 font-roboto'>{data.description}</p>
                                 <div className='flex items-left flex-col mb-10 gap-3'>
                                     <div className='flex items-center'>
-                                        <span className='text-2xl text-[#84019F] font-semibold font-dance'>Rating:</span>
-                                        <span className='text-lg ml-2 text-gray-700 font-roboto'>{data.id}</span>
-                                        <span className='text-lg ml-2 text-gray-600 font-aleg'>({data.id} ratings)</span>
+                                        <span className='text-2xl text-[#84019F] font-semibold font-dance'>Sold:</span>
+                                        <span className='text-lg ml-2 text-gray-700 font-roboto'>{data.rating.count}</span>
+                                        <span className='text-lg ml-2 text-gray-600 font-aleg'>({data.rating.rate} ratings)</span>
                                     </div>
                                     <hr className='border-gray-300 w-full' />
                                     <div className='flex items-center mt-2'>
                                         <p className='text-3xl font-semibold text-[#84019F] font-aleg'>Price:</p>
-                                        <span className='text-2xl font-bold text-black font-roboto underline ml-2'>Rs {data.price}</span>
+                                        <span className='text-2xl font-bold text-black font-roboto underline ml-2'>$ {data.price}</span>
                                     </div>
                                 </div>
                                 <div className='mb-6'>

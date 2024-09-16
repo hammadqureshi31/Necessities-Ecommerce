@@ -36,11 +36,11 @@ const Card = ({ data }) => {
             try {
                 let totalprice = Math.round(data.price * 1);
                 dispatch(addItem({
-                    image: data.images[0],
+                    image: data.image,
                     title: data.title,
                     description: data.description,
                     price: totalprice,
-                    rating: data.id,
+                    rating: data.rating.rate,
                     id: data.id,
                     qty: 1
                 }));
@@ -67,7 +67,7 @@ const Card = ({ data }) => {
         >
             {/* Display product image */}
             <div className='mx-auto'>
-                <img src={data.images[0]} alt={data.category.name} className='size-40' />
+                <img src={data.image} alt={data.title} className='size-40' />
             </div>
 
             {/* Product Title */}
@@ -89,7 +89,7 @@ const Card = ({ data }) => {
                 <h1 className='text-2xl font-medium'>$ <span
                     className='text-[#84019F] text-2xl font-semibold font-roboto'>{data.price}</span></h1>
                 <p className='flex text-2xl tracking-wide'><FcRating className='mt-1' />
-                    <span className='text-[#84019F] text-2xl tracking-wide'>&nbsp;{data.id}</span></p>
+                    <span className='text-[#84019F] text-2xl tracking-wide'>&nbsp;{data.rating.rate}</span></p>
             </div>
 
             {/* Add to Cart Button */}
@@ -108,7 +108,7 @@ const Card = ({ data }) => {
                     </div>
                 </button>
                 <div>
-                    <h1 className=' font-semibold text-xl opacity-45 mr-2'>{data.id} Sold</h1>
+                    <h1 className=' font-semibold text-xl opacity-45 mr-2'>{data.rating.count} Sold</h1>
                 </div>
             </div>
         </div>
